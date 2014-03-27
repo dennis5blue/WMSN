@@ -1,0 +1,31 @@
+\section{Introduction}
+\label{sec:Introduction}
+Nowadays, as the concept of Internet of Things (IoT) gradually becomes more and
+more important, IP cameras on road can be seen in many countries.
+These cameras are connected to the Internet and responsible for some
+surveillance applications such as traffic monitoring or crime prevention.
+However, the installation of these cameras are often around a small area.
+That is to say, image data collected from these cameras might be correlated to
+each other.
+Therefore, we argue in this paper that we can make use of this correlation and
+try to reduce the radio resource used to transmit the image data.
+
+More specifically, if we consider two cameras allocated at a crossroad, we can
+analyze their correlation by letting one camera as a I-frame transmitter while
+the other as a P-frame transmitter.
+Under this assumption, higher correlation level means that we can reduce more
+transmission bits when serving the network.
+In this paper, we will work on how to serve the wireless multimedia sensor
+network (WMSN) better via the overhearing source coding.
+We generate the testing images by a 3-D modeling software and these images are
+passed through the H.264 reference software to estimate the correlation matrix.
+Based on the correlation matrix, we further present a scheduling algorithm to
+serve the network so that we can efficiently reduce the total transmission time
+needed.
+
+The rest of this paper is organized as follows:
+Section~\ref{sec:NetworkScenario} describes our multimedia network scenario and
+Scetion~\ref{sec:ProblemFormulation} states our problem formulation.
+Section~\ref{sec:SchedulingAlgorithm} solves this problem and
+Section~\ref{sec:SimulationResults} shows the simulation results.
+Finally, Section~\ref{sec:Conclusion} concludes our work.

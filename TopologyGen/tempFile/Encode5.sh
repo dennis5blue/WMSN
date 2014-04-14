@@ -23,7 +23,7 @@
 		MCR_tmp="/tmp/mcr_$RANDOM"
 		mkdir $MCR_tmp
 		export MCR_CACHE_ROOT=$MCR_tmp
-		python encode.py --version 3 --phase 1 --camera 5
+		python encode.py --version 5 --phase 1 --camera 5
 		rm -rf $MCR_tmp                                                
 		
 

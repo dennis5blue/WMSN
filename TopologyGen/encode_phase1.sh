@@ -1,7 +1,7 @@
 #! /bin/bash
-for (( kk=3; kk<= 3; kk=kk+1)) #for the test version
+for (( kk=5; kk<= 5; kk=kk+1)) #for the test version
 do
-	for (( ii=1; ii<=5; ii=ii+1)) #for the camera index	
+	for (( ii=0; ii<=23; ii=ii+1)) #for the camera index	
 	do	
 		echo "
 		### Job name

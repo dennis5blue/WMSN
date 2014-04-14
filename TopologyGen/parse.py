@@ -10,7 +10,8 @@ def main(argv=None):
 	if sys.argv[1].startswith('--'):
 		option = sys.argv[1][2:]
 	if option == "version":
-		corrFilePath = "../TestSequences/test"+sys.argv[2]+"_correlation/test"+sys.argv[2]+"__phase_0.out"
+		indepFilePath = "../TestSequences/test"+sys.argv[2]+"_correlation/test"+sys.argv[2]+"__phase_0.out"
+		corrFilePath = "../TestSequences/test"+sys.argv[2]+"_correlation/test"+sys.argv[2]+"__phase_1_camera_"
 		saveFilePath = "../TestSequences/test"+sys.argv[2]+"_correlation/"
 		posFilePath = "../TestSequences/test"+sys.argv[2]+"_png/log.txt"
 	if option == "help":
@@ -19,29 +20,35 @@ def main(argv=None):
 
 	W = 180 # kHz bandwidth
 	P = 10  # dbm power
-	ifCompression = open(corrFilePath,"r")
+	indepCompression = open(indepFilePath,"r")
 	ifPosition = open(posFilePath,'r')
-	ofRate = open(saveFilePath+"rate.out","w+")
+	indepRate = open(saveFilePath+"indepRateAndByte.out","w+")
 	ofPos = open(saveFilePath+"pos.out","w+")
 
-	lines = ifCompression.readlines();
+	lines = indepCompression.readlines();
 	for line in lines:
 		tokens = re.split(' |\[',line)
 		tokens = filter(None,tokens);
-		#print tokens
-	#if tokens[0] == "average":
-		ofRate.write(str(float(tokens[5]))+'\n')
+		indepRate.write(str(float(tokens[5]))+" "+str(int(tokens[7]))+'\n') #tokens[5] is Rate, tokens[7] is number of Bytes when indep encoding
 
 	lines = ifPosition.readlines()
 	for line in lines:
 		line.strip()
 		tokens = line.split()
-		print tokens    	
 		if tokens[0] == "Pos":
-        	#print tokens[1]+' '+tokens[2]+' '+tokens[3]
 			xx = float(tokens[1])*100
 			yy = float(tokens[2])*100
 			ofPos.write(str(xx)+' '+str(yy)+'\n')
+
+	for camera in range(24):
+		corrCompression = open(corrFilePath+str(camera)+".out","r")
+		corrMatrix = open(saveFilePath+"corrMatrix","a+")
+		lines = corrCompression.readlines()
+		for line in lines:
+			tokens = re.split(' |\[',line)
+			tokens = filter(None,tokens)
+			corrMatrix.write(str(int(tokens[9]))+" ")
+		corrMatrix.write('\n') #c_{ij} is obtain by Ref j to code i
 
 if __name__ == "__main__":
 	sys.exit(main())

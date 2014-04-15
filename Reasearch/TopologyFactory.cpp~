@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "TopologyFactory.h"
-
+#define Inf 2147483647
 using namespace std;
 
 TopologyFactory::TopologyFactory(int numCameras, vector< pair<double,double> > positions, vector< vector<int> > corrTopology):

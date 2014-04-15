@@ -1,5 +1,5 @@
 #! /bin/bash
-for (( kk=5; kk<= 5; kk=kk+1)) #for the test version
+for (( kk=6; kk<= 6; kk=kk+1)) #for the test version
 do
 	for (( ii=0; ii<=23; ii=ii+1)) #for the camera index	
 	do	

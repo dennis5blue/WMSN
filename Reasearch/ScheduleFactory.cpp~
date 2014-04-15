@@ -59,7 +59,7 @@ vector<int> ScheduleFactory::GenerateSchedule(int m_numCameras, const vector< ve
 			{
 				if ( searchRange.at(p)!=-1 && indepRequiredBytes.at(p)/capacityToAggregator.at(p) < tempIndepTime)
 				{
-					tempIndenpTime = indepRequiredBytes.at(p)/capacityToAggregator.at(p);
+					tempIndepTime = indepRequiredBytes.at(p)/capacityToAggregator.at(p);
 					nextCamera = p;
 				}
 			}
@@ -104,8 +104,7 @@ int ScheduleFactory::FindBestRefTo(int m_numCameras, int m_targetCamera, const v
 				tempBestRefTo = j;
 			}
 		}
-	}
-	
+	}	
 	return tempBestRefTo;
 }
 

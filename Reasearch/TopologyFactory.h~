@@ -13,7 +13,7 @@ public:
 	vector< pair<double,double> > m_positions; // the first pair is the aggregator position
 	vector< vector<int> > m_corrTopology;
 	vector< vector<int> > GetTopology() const {return m_corrTopology; }
-	void const PrintTopology();
+	void PrintTopology();
 
 private:
 	double m_power; // Watt

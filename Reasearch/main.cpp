@@ -7,12 +7,13 @@
 #include <stdlib.h>
 
 #define CAMERA_NUM 24
-#define INPUT_CORR (char*)("corrMatrix.txt")
-#define INPUT_INDEP (char*)("indepByte.txt")
+#define INPUT_CORR (char*)("test3_corrMatrix.txt")
+#define INPUT_INDEP (char*)("test3_indepByte.txt")
 #define INPUT_POS (char*)("pos.txt")
 
 #include "TopologyFactory.h"
 #include "ScheduleFactory.h"
+#include "SimulationFactory.h"
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -24,8 +25,6 @@ int main(int argc, char *argv[])
 	//**********************************************************************************************//	
 	vector<int> zeroVector(CAMERA_NUM, 0);	
 	vector< vector<int> > mycorrTopology(CAMERA_NUM, zeroVector);
-	//vector< vector<int> > *ptr_mycorrTopology = new vector< vector<int> > (CAMERA_NUM, zeroVector);
-	//vector< vector<int> > *ptr_mycorrTopology = &mycorrTopology;
 	ifstream input(INPUT_CORR, ios::in);
     for (int i=0; i!=CAMERA_NUM; ++i)
         for (int j=0; j!=CAMERA_NUM; ++j)
@@ -60,12 +59,20 @@ int main(int argc, char *argv[])
 	for (int k=0; k!=CAMERA_NUM+1; ++k)
 		cout << position[k].first << " " << position[k].second << endl;
 	*/
+	cout << "Input File is: " << INPUT_CORR << endl;
 
 	TopologyFactory myTopology( CAMERA_NUM, position, mycorrTopology );
-	myTopology.PrintTopology();
+	//myTopology.PrintTopology();
 	
 	ScheduleFactory mySchedule( CAMERA_NUM, position, myTopology.GetTopology() );
 	mySchedule.PrintSchedule();
+	
+	SimulationFactory mySimulation( CAMERA_NUM, myTopology.GetTopology(), mySchedule.GetSchedule(), mySchedule.GetCapacity());
+	cout << "Independent transmission time = " << mySimulation.GetIndepTransTime() << " (second)" << endl;
+	cout << "Overhearing transmission time = " << mySimulation.GetOverTransTime() << " (second)" << endl;
+	cout << "Improvement ratio = " << 100*( mySimulation.GetIndepTransTime()-mySimulation.GetOverTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
+	cout << "Minimum transmission time = " << mySimulation.GetMinimumTransTime() << " (second)" << endl;
+	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransTime()-mySimulation.GetMinimumTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
 }
 
 

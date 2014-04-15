@@ -13,7 +13,8 @@ public:
 	int m_numCameras;
 	vector< vector<int> > m_overhearTopology;
 	vector< pair<double,double> > m_positions;
-	vector<int> GetSchedule() const {return m_transSchedule; }
+	vector<int> GetSchedule() const {return transSchedule; }
+	vector<double> GetCapacity() const {return capacityToAggregator; }	
 	void PrintSchedule();
 
 private:

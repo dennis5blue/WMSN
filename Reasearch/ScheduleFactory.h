@@ -10,13 +10,14 @@ class ScheduleFactory
 {
 public:
 	ScheduleFactory(int numCameras, vector< pair<double,double> > positions, vector< vector<int> > overhearTopology);
-	int m_numCameras;
-	vector< vector<int> > m_overhearTopology;
-	vector< pair<double,double> > m_positions;
 	vector<int> GetSchedule() const {return transSchedule; }
+	vector<double> GetCapacity() const {return capacityToAggregator; }	
 	void PrintSchedule();
 
 private:
+	int m_numCameras;
+	vector< vector<int> > m_overhearTopology;
+	vector< pair<double,double> > m_positions;
 	double power;
 	double bandwidth;
 	double N0;

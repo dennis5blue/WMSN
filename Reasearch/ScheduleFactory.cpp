@@ -104,8 +104,7 @@ int ScheduleFactory::FindBestRefTo(int m_numCameras, int m_targetCamera, const v
 				tempBestRefTo = j;
 			}
 		}
-	}
-	
+	}	
 	return tempBestRefTo;
 }
 
@@ -120,7 +119,7 @@ double ScheduleFactory::CapacityToAggregatorCal(double m_xA, double m_yA, double
 
 void ScheduleFactory::PrintSchedule()
 {
-	cout << "Transmission schedule: " << endl;
+	cout << "Transmission schedule: " ;
 	for (int i=0; i!=transSchedule.size(); ++i)
 		cout << transSchedule.at(i) << " ";
 	cout << endl;

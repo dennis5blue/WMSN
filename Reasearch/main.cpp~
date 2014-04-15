@@ -61,11 +61,14 @@ int main(int argc, char *argv[])
 		cout << position[k].first << " " << position[k].second << endl;
 	*/
 
-	TopologyFactory myTopology(CAMERA_NUM, position, mycorrTopology);
+	TopologyFactory myTopology( CAMERA_NUM, position, mycorrTopology );
 	myTopology.PrintTopology();
 	
-	ScheduleFactory mySchedule(CAMERA_NUM, myTopology.GetTopology());
+	ScheduleFactory mySchedule( CAMERA_NUM, position, myTopology.GetTopology() );
 	mySchedule.PrintSchedule();
+	for(int haha=0; haha!=CAMERA_NUM; ++haha)
+		cout << mySchedule.GetSchedule().at(haha) << " ";
+	cout << endl;
 }
 
 

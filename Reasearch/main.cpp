@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 	TopologyFactory myTopology( CAMERA_NUM, position, mycorrTopology );
 	myTopology.PrintTopology();
 	
-	ScheduleFactory mySchedule( CAMERA_NUM, myTopology.GetTopology() );
+	ScheduleFactory mySchedule( CAMERA_NUM, position, myTopology.GetTopology() );
 	mySchedule.PrintSchedule();
 }
 

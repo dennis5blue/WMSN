@@ -1,14 +1,11 @@
 # JMVC Configuration File in MVC mode
 #====================== GENERAL ================================================
-#InputFile               input      # input file
-#InputFile               ../../testSequences/Ex4_City/camera
-InputFile               tmp
-# input file
-OutputFile              stream    # bitstream file
-ReconFile               rec        # reconstructed file
-MotionFile              motion     # motion information file
-SourceWidth             1080       # input  frame width
-SourceHeight            768        # input  frame height
+InputFile               ./tempFile/tmp	# input file
+OutputFile              ./tempFile/stream    # bitstream file
+ReconFile               ./tempFile/rec        # reconstructed file
+MotionFile              ./tempFile/motion     # motion information file
+SourceWidth             800       # input  frame width
+SourceHeight            600        # input  frame height
 FrameRate               25.0       # frame rate [Hz]
 FramesToBeEncoded       1        # number of frames
 

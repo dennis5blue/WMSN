@@ -7,8 +7,8 @@
 #include <stdlib.h>
 
 #define CAMERA_NUM 24
-#define INPUT_CORR (char*)("test3_corrMatrix.txt")
-#define INPUT_INDEP (char*)("test3_indepByte.txt")
+#define INPUT_CORR (char*)("test6_corrMatrix.txt")
+#define INPUT_INDEP (char*)("test6_indepByte.txt")
 #define INPUT_POS (char*)("pos.txt")
 
 #include "TopologyFactory.h"

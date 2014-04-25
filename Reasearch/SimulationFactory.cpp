@@ -11,36 +11,56 @@ SimulationFactory::SimulationFactory(int numCameras, vector< vector<int> > overh
 	m_cameraSchedule(cameraSchedule),
 	m_channelCapacity(channelCapacity)
 {
-	totalIndepTransTime = IndepTimeCalculator(m_numCameras, m_overhearTopology, m_channelCapacity);
-	totalOverTransTime = OverTimeCalculator(m_numCameras, m_overhearTopology, m_channelCapacity, m_cameraSchedule);
-	totalMinimumTransTime = MinimumTimeCalculator(m_numCameras, m_overhearTopology, m_channelCapacity);
+	requiredTime = CalRequiredTime();	
+	totalIndepTransTime = IndepTimeCalculator();
+	totalOverTransTime = OverTimeCalculator();
+	totalMinimumTransTime = MinimumTimeCalculator();
 }
 
-double SimulationFactory::IndepTimeCalculator( int m_numCameras, vector< vector<int> > m_overhearTopology, vector<double> m_channelCapacity )
+vector< vector<double> > SimulationFactory::CalRequiredTime()
+{
+	vector<double> tempZero(m_numCameras, 0);
+	vector< vector<double> > m_requiredTime(m_numCameras, tempZero);
+	for (int i=0; i!=m_numCameras; ++i)
+	{
+		for (int j=0; j!=m_numCameras; ++j)
+		{
+			if (m_overhearTopology.at(i).at(j)>0)
+				m_requiredTime.at(i).at(j) = 8*m_overhearTopology.at(i).at(j)/m_channelCapacity.at(i);
+			else if (m_overhearTopology.at(i).at(j)==-1)
+				m_requiredTime.at(i).at(j) = 8*m_overhearTopology.at(i).at(i)/m_channelCapacity.at(i);
+		}
+	}
+	return m_requiredTime;
+}
+
+double SimulationFactory::IndepTimeCalculator()
 {
 	double m_totalIndepTransTime = 0.0;
 	for (int i=0; i!=m_numCameras; ++i)
-		m_totalIndepTransTime += 8*m_overhearTopology.at(i).at(i) / m_channelCapacity.at(i) ;
+		m_totalIndepTransTime += requiredTime.at(i).at(i);
 	return m_totalIndepTransTime;
 }
 
-double SimulationFactory::OverTimeCalculator( int m_numCameras, vector< vector<int> > m_overhearTopology, vector<double> m_channelCapacity, vector<int> m_cameraSchedule )
+double SimulationFactory::OverTimeCalculator()
 {
 	int firstCamera = m_cameraSchedule.at(0);
-	double m_totalOverTransTime = 8*m_overhearTopology.at(firstCamera).at(firstCamera) / m_channelCapacity.at(firstCamera);
+	double m_totalOverTransTime = requiredTime.at(firstCamera).at(firstCamera);
 	for (int i=1; i!=m_numCameras; ++i)
 	{
-		int refCamera = m_cameraSchedule.at(i-1);		
 		int encodeCamera = m_cameraSchedule.at(i);
-		if ( m_overhearTopology.at(encodeCamera).at(refCamera) != -1 )
-			m_totalOverTransTime += 8*m_overhearTopology.at(encodeCamera).at(refCamera) / m_channelCapacity.at(encodeCamera);
-		else
-			m_totalOverTransTime += 8*m_overhearTopology.at(encodeCamera).at(encodeCamera) / m_channelCapacity.at(encodeCamera);
+		int refCamera = m_cameraSchedule.at(i-1);
+		for (int j=0; j!=m_cameraSchedule.size(); ++j)
+		{
+			if (requiredTime.at(encodeCamera).at(m_cameraSchedule.at(j)) < requiredTime.at(encodeCamera).at(refCamera) )
+				refCamera = m_cameraSchedule.at(j);
+		}
+		m_totalOverTransTime += requiredTime.at(encodeCamera).at(refCamera);
 	}
 	return m_totalOverTransTime;
 }
 
-double SimulationFactory::MinimumTimeCalculator( int m_numCameras, vector< vector<int> > m_overhearTopology, vector<double> m_channelCapacity )
+double SimulationFactory::MinimumTimeCalculator()
 {
 	vector<double> zerosVector(m_numCameras,0.0);
 	vector< vector<double> > transTimeMatrix(m_numCameras, zerosVector);

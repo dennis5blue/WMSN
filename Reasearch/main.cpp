@@ -7,12 +7,13 @@
 #include <stdlib.h>
 
 #define CAMERA_NUM 24
-#define INPUT_CORR (char*)("test3_corrMatrix.txt")
-#define INPUT_INDEP (char*)("test3_indepByte.txt")
+#define INPUT_CORR (char*)("./Topology/test5_corrMatrix.txt")
+#define INPUT_INDEP (char*)("./Topology/test5_indepByte.txt")
 #define INPUT_POS (char*)("pos.txt")
 
 #include "TopologyFactory.h"
 #include "ScheduleFactory.h"
+#include "SchedulingMetric.h"
 #include "SimulationFactory.h"
 using namespace std;
 
@@ -66,12 +67,22 @@ int main(int argc, char *argv[])
 	
 	ScheduleFactory mySchedule( CAMERA_NUM, position, myTopology.GetTopology() );
 	mySchedule.PrintSchedule();
+	SchedulingMetric anotherSchedule( CAMERA_NUM, position, myTopology.GetTopology() );	
+	anotherSchedule.PrintSchedule();
 	
-	SimulationFactory mySimulation( CAMERA_NUM, myTopology.GetTopology(), mySchedule.GetSchedule(), mySchedule.GetCapacity());
-	cout << "Independent transmission time = " << mySimulation.GetIndepTransTime() << " (second)" << endl;
-	cout << "Overhearing transmission time = " << mySimulation.GetOverTransTime() << " (second)" << endl;
-	cout << "Improvement ratio = " << 100*( mySimulation.GetIndepTransTime()-mySimulation.GetOverTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
-	cout << "Minimum transmission time = " << mySimulation.GetMinimumTransTime() << " (second)" << endl;
+	SimulationFactory mySimulation( CAMERA_NUM, myTopology.GetTopology(),
+		mySchedule.GetSchedule(), mySchedule.GetCapacity());
+	SimulationFactory anotherSimulation( CAMERA_NUM, myTopology.GetTopology(),
+		anotherSchedule.GetSchedule(), anotherSchedule.GetCapacity());
+	//cout << "Independent transmission time = " << mySimulation.GetIndepTransTime() << " (second)" << endl;
+	//cout << "Overhearing transmission time = " << mySimulation.GetOverTransTime() << " (second)" << endl;
+	cout << "Greedy: " << endl;	
+	cout << "Improvement ratio = " << 100*( mySimulation.GetIndepTransTime()-
+		mySimulation.GetOverTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
+	cout << "Scheduling Metric: " << endl;	
+	cout << "Improvement ratio = " << 100*( anotherSimulation.GetIndepTransTime()-
+		anotherSimulation.GetOverTransTime() )/anotherSimulation.GetIndepTransTime() << " %" <<endl;
+	//cout << "Minimum transmission time = " << mySimulation.GetMinimumTransTime() << " (second)" << endl;
 	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransTime()-mySimulation.GetMinimumTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
 }
 

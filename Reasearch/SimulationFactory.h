@@ -20,12 +20,14 @@ private:
 	vector<int> m_cameraSchedule;
 	vector<double> m_channelCapacity;
 	vector<int> indepRequiredBytes;
+	vector< vector<double> > requiredTime;
 	double totalOverTransTime;
 	double totalIndepTransTime;
 	double totalMinimumTransTime;
-	double IndepTimeCalculator( int m_numCameras, vector< vector<int> > m_overhearTopology, vector<double> m_channelCapacity );
-	double OverTimeCalculator( int m_numCameras, vector< vector<int> > m_overhearTopology, vector<double> m_channelCapacity, vector<int> m_cameraSchedule );
-	double MinimumTimeCalculator( int m_numCameras, vector< vector<int> > m_overhearTopology, vector<double> m_channelCapacity );
+	double IndepTimeCalculator();
+	double OverTimeCalculator();
+	double MinimumTimeCalculator();
+	vector< vector<double> > CalRequiredTime();
 };
 
 #endif //SIMULATION_FACTORY_H

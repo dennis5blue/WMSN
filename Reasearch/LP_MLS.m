@@ -1,8 +1,16 @@
-correlation3 =load('test3LpInput.txt');
+correlation3 =load('./Topology/test5LpInput.txt');
 Capacity = [1.86313e+06 1.86313e+06 2.06955e+06 1.86313e+06 1.86313e+06 ...
     2.06955e+06 113231 113231 110986 113231 113231 110986 3.6668e+06  ...
     3.6668e+06 3.02487e+06 3.6668e+06 3.6668e+06 3.02487e+06 3.6668e+06 ...
     3.6668e+06 3.02487e+06 3.6668e+06 3.6668e+06 3.02487e+06];
+for r = 1:cameraNum
+    timeRequired(r,:) = correlation3(r,:)/Capacity(r);
+    for ch = 1:cameraNum
+        if timeRequired(r,ch) < 0
+            timeRequired(r,ch) = inf;
+        end
+    end
+end
 cameraNum = length(correlation3(:,1));
 
 %---Objective---%
@@ -70,4 +78,29 @@ for r=1:cameraNum
     end
 end
 
-Xbinary = ceil(X'-0.5*rand(1,cameraNum));
+%Approximation Algorithm for MLS
+for cam=1:cameraNum
+    Xbinary(cam) = binornd(1,X(cam));
+end
+Xbinary
+
+Ybinary = zeros(cameraNum,cameraNum);
+camIndep = find(Xbinary==1);
+for g=1:length(camIndep)
+    Ybinary(camIndep(g),camIndep(g))=1;
+end
+camOver = find(Xbinary==0);
+for f=1:length(camOver)
+    targetCam = camOver(f);
+    [Cs Cp] = sort(timeRequired(targetCam,:),'ascend'); %[CameraSize CameraPosition]
+    Ybinary(Cp(1),targetCam) = 1;
+end
+
+%calculate total transmisssion time
+originalTime = 0;
+totalTime = 0;
+for cal=1:cameraNum
+    totalTime = totalTime+ timeRequired(find(Ybinary(:,cal)==1),cal);
+    originalTime = originalTime + timeRequired(cal,cal);
+end
+ImproveRatio = (originalTime - totalTime) / originalTime

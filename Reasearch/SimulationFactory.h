@@ -12,6 +12,7 @@ public:
 	SimulationFactory(int numCameras, vector< vector<int> > overhearTopology, vector<int> cameraSchedule, vector<double> channelCapacity);
 	double GetIndepTransTime() const {return totalIndepTransTime; }
 	double GetOverTransTime() const {return totalOverTransTime; }
+	double GetOverTransTimeListenOneBefore() const {return totalOverTransTimeListenOneBefore; }
 	double GetMinimumTransTime() const {return totalMinimumTransTime; }
 
 private:
@@ -22,10 +23,12 @@ private:
 	vector<int> indepRequiredBytes;
 	vector< vector<double> > requiredTime;
 	double totalOverTransTime;
+	double totalOverTransTimeListenOneBefore;
 	double totalIndepTransTime;
 	double totalMinimumTransTime;
 	double IndepTimeCalculator();
 	double OverTimeCalculator();
+	double OverTimeCalculatorListenOneBefore();
 	double MinimumTimeCalculator();
 	vector< vector<double> > CalRequiredTime();
 };

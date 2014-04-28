@@ -1,5 +1,5 @@
 main.o : main.cpp TopologyFactory.cpp
-	g++ main.cpp TopologyFactory.cpp ScheduleFactory.cpp SimulationFactory.cpp SchedulingMetric.cpp -o main.out
+	g++ main.cpp TopologyFactory.cpp ScheduleFactory.cpp SimulationFactory.cpp SchedulingMetric.cpp SinrScheduling.cpp -o main.out
 
 .PHONY : clean
 clean :

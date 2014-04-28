@@ -20,7 +20,7 @@ vector<int> SchedulingMetric::GenerateSchedule()
 	while (nonScheduled.back() != 0)
 		nonScheduled.push_back ( nonScheduled.back() -1 ); //Initialize vector nonScheduled 23,22,...,0
 		
-	for (int j=0; j!=24; ++j)
+	for (int j=0; j!=m_numCameras; ++j)
 	{
 		double metricTemp = MetricCal( nonScheduled, nonScheduled.at(0) );	
 		int nextCamera = nonScheduled.at(0);

@@ -14,6 +14,7 @@ SimulationFactory::SimulationFactory(int numCameras, vector< vector<int> > overh
 	requiredTime = CalRequiredTime();	
 	totalIndepTransTime = IndepTimeCalculator();
 	totalOverTransTime = OverTimeCalculator();
+	totalOverTransTimeListenOneBefore = OverTimeCalculatorListenOneBefore();
 	totalMinimumTransTime = MinimumTimeCalculator();
 }
 
@@ -55,6 +56,19 @@ double SimulationFactory::OverTimeCalculator()
 			if (requiredTime.at(encodeCamera).at(m_cameraSchedule.at(j)) < requiredTime.at(encodeCamera).at(refCamera) )
 				refCamera = m_cameraSchedule.at(j);
 		}
+		m_totalOverTransTime += requiredTime.at(encodeCamera).at(refCamera);
+	}
+	return m_totalOverTransTime;
+}
+
+double SimulationFactory::OverTimeCalculatorListenOneBefore()
+{
+	int firstCamera = m_cameraSchedule.at(0);
+	double m_totalOverTransTime = requiredTime.at(firstCamera).at(firstCamera);
+	for (int i=1; i!=m_numCameras; ++i)
+	{
+		int encodeCamera = m_cameraSchedule.at(i);
+		int refCamera = m_cameraSchedule.at(i-1);
 		m_totalOverTransTime += requiredTime.at(encodeCamera).at(refCamera);
 	}
 	return m_totalOverTransTime;

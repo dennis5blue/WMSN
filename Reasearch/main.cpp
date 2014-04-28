@@ -15,6 +15,7 @@
 #include "ScheduleFactory.h"
 #include "SchedulingMetric.h"
 #include "SimulationFactory.h"
+#include "SinrScheduling.h"
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -66,22 +67,38 @@ int main(int argc, char *argv[])
 	//myTopology.PrintTopology();
 	
 	ScheduleFactory mySchedule( CAMERA_NUM, position, myTopology.GetTopology() );
+	cout << "Graph: ";	
 	mySchedule.PrintSchedule();
 	SchedulingMetric anotherSchedule( CAMERA_NUM, position, myTopology.GetTopology() );	
+	cout << "Scheduling metric: ";	
 	anotherSchedule.PrintSchedule();
+	SinrScheduling sinrSchedule( CAMERA_NUM, position, myTopology.GetTopology() );
+	cout << "Largest entropy first: ";	
+	sinrSchedule.PrintSchedule();
+	cout << "Smallest entropy first: ";
+	sinrSchedule.PrintSchedule2();
 	
 	SimulationFactory mySimulation( CAMERA_NUM, myTopology.GetTopology(),
 		mySchedule.GetSchedule(), mySchedule.GetCapacity());
 	SimulationFactory anotherSimulation( CAMERA_NUM, myTopology.GetTopology(),
 		anotherSchedule.GetSchedule(), anotherSchedule.GetCapacity());
-	//cout << "Independent transmission time = " << mySimulation.GetIndepTransTime() << " (second)" << endl;
-	//cout << "Overhearing transmission time = " << mySimulation.GetOverTransTime() << " (second)" << endl;
-	cout << "Greedy: " << endl;	
+	SimulationFactory sinrSimulation( CAMERA_NUM, myTopology.GetTopology(),
+		sinrSchedule.GetSchedule(), sinrSchedule.GetCapacity());
+	SimulationFactory sinrSimulation2( CAMERA_NUM, myTopology.GetTopology(),
+		sinrSchedule.GetSchedule2(), sinrSchedule.GetCapacity());
+			
+	cout << "Graph: ";	
 	cout << "Improvement ratio = " << 100*( mySimulation.GetIndepTransTime()-
-		mySimulation.GetOverTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
-	cout << "Scheduling Metric: " << endl;	
+		mySimulation.GetOverTransTimeListenOneBefore() )/mySimulation.GetIndepTransTime() << " %" <<endl;
+	cout << "Scheduling Metric: ";	
 	cout << "Improvement ratio = " << 100*( anotherSimulation.GetIndepTransTime()-
-		anotherSimulation.GetOverTransTime() )/anotherSimulation.GetIndepTransTime() << " %" <<endl;
+		anotherSimulation.GetOverTransTimeListenOneBefore() )/anotherSimulation.GetIndepTransTime() << " %" <<endl;
+	cout << "Largest entropy first: ";	
+	cout << "Improvement ratio = " << 100*( sinrSimulation.GetIndepTransTime()-
+		sinrSimulation.GetOverTransTimeListenOneBefore() )/sinrSimulation.GetIndepTransTime() << " %" <<endl;	
+	cout << "Smallest entropy first: ";	
+	cout << "Improvement ratio = " << 100*( sinrSimulation2.GetIndepTransTime()-
+		sinrSimulation2.GetOverTransTimeListenOneBefore() )/sinrSimulation2.GetIndepTransTime() << " %" <<endl;	
 	//cout << "Minimum transmission time = " << mySimulation.GetMinimumTransTime() << " (second)" << endl;
 	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransTime()-mySimulation.GetMinimumTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
 }

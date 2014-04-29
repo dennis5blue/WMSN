@@ -1,4 +1,4 @@
-correlation3 =load('./Topology/test3LpInput.txt');
+correlation3 =load('./Topology/paper720_LPInput.txt');
 Capacity = [1.86313e+06 1.86313e+06 2.06955e+06 1.86313e+06 1.86313e+06 ...
     2.06955e+06 113231 113231 110986 113231 113231 110986 3.6668e+06  ...
     3.6668e+06 3.02487e+06 3.6668e+06 3.6668e+06 3.02487e+06 3.6668e+06 ...
@@ -31,7 +31,7 @@ A = zeros(cameraNum*(cameraNum+1)+cameraNum,cameraNum*(cameraNum+1)+1);
 b = zeros(cameraNum*(cameraNum+1)+cameraNum,1);
 %Each camera has at least one indep camera to overhear
 for k=1:cameraNum
-    A(k,find(correlation3(k,:)>0))= -1;
+    A(k,correlation3(k,:)>0)= -1;
     b(k) = -1;
 end
 %v_j must indep. sent before v_i can overhear v_j
@@ -82,6 +82,7 @@ for r=1:cameraNum
 end
 
 RecordImproveRatio = [];
+RecordTime = [];
 for avetime = 1:100
     %Approximation Algorithm for MLS
     for cam=1:cameraNum
@@ -109,7 +110,10 @@ for avetime = 1:100
         originalTime = originalTime + timeRequired(cal,cal);
     end
     ImproveRatio = (originalTime - totalTime) / originalTime;
+    RecordTime = [RecordTime totalTime];
     RecordImproveRatio = [RecordImproveRatio ImproveRatio];
 end %end average
 
+IndepTransTime = originalTime
+averageOverTransTime = sum(RecordTime)/length(RecordTime)
 averageImprovement = sum(RecordImproveRatio)/length(RecordImproveRatio)

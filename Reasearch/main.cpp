@@ -7,9 +7,9 @@
 #include <stdlib.h>
 
 #define CAMERA_NUM 24
-#define INPUT_CORR (char*)("./Topology/test5_corrMatrix.txt")
-#define INPUT_INDEP (char*)("./Topology/test5_indepByte.txt")
-#define INPUT_POS (char*)("pos.txt")
+#define INPUT_CORR (char*)("./Topology/paper720_corrMatrix.txt")
+#define INPUT_INDEP (char*)("./Topology/paper720_indepByte.txt")
+#define INPUT_POS (char*)("./Topology/pos.txt")
 
 #include "TopologyFactory.h"
 #include "ScheduleFactory.h"
@@ -86,20 +86,26 @@ int main(int argc, char *argv[])
 		sinrSchedule.GetSchedule(), sinrSchedule.GetCapacity());
 	SimulationFactory sinrSimulation2( CAMERA_NUM, myTopology.GetTopology(),
 		sinrSchedule.GetSchedule2(), sinrSchedule.GetCapacity());
-			
-	cout << "Graph: ";	
+
+	cout << endl;
+	cout << "Indepent transmission time = " << anotherSimulation.GetIndepTransTime() << endl;
+	cout << "Graph: ";
+	cout << "Trans time = " << mySimulation.GetOverTransTimeListenOneBefore() << "; ";
 	cout << "Improvement ratio = " << 100*( mySimulation.GetIndepTransTime()-
 		mySimulation.GetOverTransTimeListenOneBefore() )/mySimulation.GetIndepTransTime() << " %" <<endl;
-	cout << "Scheduling Metric: ";	
+	cout << "Scheduling Metric: ";
+	cout << "Trans time = " << anotherSimulation.GetOverTransTimeListenOneBefore() << "; ";
 	cout << "Improvement ratio = " << 100*( anotherSimulation.GetIndepTransTime()-
 		anotherSimulation.GetOverTransTimeListenOneBefore() )/anotherSimulation.GetIndepTransTime() << " %" <<endl;
-	cout << "Largest entropy first: ";	
+	cout << "Largest entropy first: ";
+	cout << "Trans time = " << sinrSimulation.GetOverTransTimeListenOneBefore() << "; ";
 	cout << "Improvement ratio = " << 100*( sinrSimulation.GetIndepTransTime()-
 		sinrSimulation.GetOverTransTimeListenOneBefore() )/sinrSimulation.GetIndepTransTime() << " %" <<endl;	
-	cout << "Smallest entropy first: ";	
+	cout << "Smallest entropy first: ";
+	cout << "Trans time = " << sinrSimulation2.GetOverTransTimeListenOneBefore() << "; ";
 	cout << "Improvement ratio = " << 100*( sinrSimulation2.GetIndepTransTime()-
 		sinrSimulation2.GetOverTransTimeListenOneBefore() )/sinrSimulation2.GetIndepTransTime() << " %" <<endl;	
-	//cout << "Minimum transmission time = " << mySimulation.GetMinimumTransTime() << " (second)" << endl;
+	cout << "Minimum transmission time = " << mySimulation.GetMinimumTransTime() << " (second)" << endl;
 	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransTime()-mySimulation.GetMinimumTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
 }
 

@@ -144,8 +144,8 @@ cameraPos = (-0.53, -0.1, 0.07)
 cameraRotation = (1.3, 0.0, 3.95)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
 
-bpy.data.scenes["Scene"].render.resolution_x = 800*2;
-bpy.data.scenes["Scene"].render.resolution_y = 600*2;
+bpy.data.scenes["Scene"].render.resolution_x = 480*2;
+bpy.data.scenes["Scene"].render.resolution_y = 360*2;
 # object has a attribute named type which can query the type
 # print(str(object.type))
 for object in bpy.data.objects:
@@ -160,7 +160,7 @@ print('\nPrint Scenes...');
 sceneKey = bpy.data.scenes.keys()[0]; 
 print('Using Scene['  + sceneKey + ']');
 c=0;
-logFileName="//home/dennisyu/Documents/WMSN/TestSequences/test6_png/log.txt"
+logFileName="//home/dennisyu/Documents/WMSN/TestSequences/test_paperRotate_png/log.txt"
 logFile=open(logFileName,"w+")
 for obj in bpy.data.objects: 
 # Find cameras that match cameraNames 
@@ -176,7 +176,7 @@ for obj in bpy.data.objects:
         # Render Scene and store the scene 
         bpy.ops.render.render( write_still=True ); 
         RR = "Render Result";
-        bpy.data.images[RR].save_render("/home/dennisyu/Documents/WMSN/TestSequences/test6_png/camera_"+str(c)+".png");
+        bpy.data.images[RR].save_render("/home/dennisyu/Documents/WMSN/TestSequences/test_paperRotate_png/camera_"+str(c)+".png");
         c = c + 1; 
 
 logFile.close()

@@ -51,9 +51,9 @@ double SimulationFactory::OverTimeCalculator()
 	{
 		int encodeCamera = m_cameraSchedule.at(i);
 		int refCamera = m_cameraSchedule.at(i-1);
-		for (int j=0; j!=m_cameraSchedule.size(); ++j)
+		for (int j=0; j!=i-1; ++j)
 		{
-			if (requiredTime.at(encodeCamera).at(m_cameraSchedule.at(j)) < requiredTime.at(encodeCamera).at(refCamera) )
+			if (requiredTime.at(encodeCamera).at(m_cameraSchedule.at(j)) < requiredTime.at(encodeCamera).at(refCamera))
 				refCamera = m_cameraSchedule.at(j);
 		}
 		m_totalOverTransTime += requiredTime.at(encodeCamera).at(refCamera);

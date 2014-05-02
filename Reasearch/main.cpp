@@ -88,8 +88,9 @@ int main(int argc, char *argv[])
 		sinrSchedule.GetSchedule2(), sinrSchedule.GetCapacity());
 
 	cout << endl;
+
 	cout << "Indepent transmission time = " << anotherSimulation.GetIndepTransTime() << endl;
-	cout << "Graph: ";
+	cout << "Graph: ";	
 	cout << "Trans time = " << mySimulation.GetOverTransTimeListenOneBefore() << "; ";
 	cout << "Improvement ratio = " << 100*( mySimulation.GetIndepTransTime()-
 		mySimulation.GetOverTransTimeListenOneBefore() )/mySimulation.GetIndepTransTime() << " %" <<endl;
@@ -107,6 +108,24 @@ int main(int argc, char *argv[])
 		sinrSimulation2.GetOverTransTimeListenOneBefore() )/sinrSimulation2.GetIndepTransTime() << " %" <<endl;	
 	cout << "Minimum transmission time = " << mySimulation.GetMinimumTransTime() << " (second)" << endl;
 	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransTime()-mySimulation.GetMinimumTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
+	
+	
+	/*cout << "Indepent transmission byte = " << anotherSimulation.GetIndepTransByte() << endl;
+	cout << "Graph: ";
+	cout << "Trans byte = " << mySimulation.GetOverTransByte() << "; ";
+	cout << "Improvement ratio = " << 100*( mySimulation.GetIndepTransByte()-
+		mySimulation.GetOverTransByte() )/mySimulation.GetIndepTransByte() << " %" <<endl;
+	cout << "Scheduling Metric: ";
+	cout << "Trans byte = " << anotherSimulation.GetOverTransByte() << "; ";
+	cout << "Improvement ratio = " << 100*( anotherSimulation.GetIndepTransByte()-
+		anotherSimulation.GetOverTransByte() )/anotherSimulation.GetIndepTransByte() << " %" <<endl;
+	cout << "Largest entropy first: ";
+	cout << "Trans byte = " << sinrSimulation.GetOverTransByte() << "; ";
+	cout << "Improvement ratio = " << 100*( sinrSimulation.GetIndepTransByte()-
+		sinrSimulation.GetOverTransByte() )/sinrSimulation.GetIndepTransByte() << " %" <<endl;	
+	cout << "Minimum transmission byte = " << mySimulation.GetMinimumTransByte() << " (bytes)" << endl;
+	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransByte()-mySimulation.GetMinimumTransByte() )/mySimulation.GetIndepTransByte() << " %" <<endl;*/
+
 }
 
 

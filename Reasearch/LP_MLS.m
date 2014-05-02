@@ -1,4 +1,4 @@
-correlation3 =load('./Topology/paper720_LPInput.txt');
+correlation3 =load('./Topology/paper360_LPInput.txt');
 Capacity = [1.86313e+06 1.86313e+06 2.06955e+06 1.86313e+06 1.86313e+06 ...
     2.06955e+06 113231 113231 110986 113231 113231 110986 3.6668e+06  ...
     3.6668e+06 3.02487e+06 3.6668e+06 3.6668e+06 3.02487e+06 3.6668e+06 ...
@@ -83,6 +83,8 @@ end
 
 RecordImproveRatio = [];
 RecordTime = [];
+RecordImproveRatioByte = [];
+RecordByte = [];
 for avetime = 1:100
     %Approximation Algorithm for MLS
     for cam=1:cameraNum
@@ -112,8 +114,23 @@ for avetime = 1:100
     ImproveRatio = (originalTime - totalTime) / originalTime;
     RecordTime = [RecordTime totalTime];
     RecordImproveRatio = [RecordImproveRatio ImproveRatio];
+    
+    %calculate total transmisssion byte
+    originalByte = 0;
+    totalByte = 0;
+    for cal2=1:cameraNum
+        totalByte = totalByte+ correlation3(find(Ybinary(:,cal2)==1),cal2);
+        originalByte = originalByte + correlation3(cal2,cal2);
+    end
+    ImproveRatio2 = (originalByte - totalByte) / originalByte;
+    RecordByte = [RecordByte totalByte];
+    RecordImproveRatioByte = [RecordImproveRatioByte ImproveRatio2];
+    
 end %end average
 
 IndepTransTime = originalTime
 averageOverTransTime = sum(RecordTime)/length(RecordTime)
-averageImprovement = sum(RecordImproveRatio)/length(RecordImproveRatio)
+averageImprovementTime = sum(RecordImproveRatio)/length(RecordImproveRatio)
+IndepTransByte = originalByte
+averageOverTransByte = sum(RecordByte)/length(RecordByte)
+averageImprovementByte = sum(RecordImproveRatioByte)/length(RecordImproveRatioByte)

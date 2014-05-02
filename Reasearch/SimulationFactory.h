@@ -14,6 +14,9 @@ public:
 	double GetOverTransTime() const {return totalOverTransTime; }
 	double GetOverTransTimeListenOneBefore() const {return totalOverTransTimeListenOneBefore; }
 	double GetMinimumTransTime() const {return totalMinimumTransTime; }
+	int GetOverTransByte() const {return totalOverTransByte; }
+	int GetIndepTransByte() const {return totalIndepTransByte; }
+	int GetMinimumTransByte() const {return totalMinimumTransByte; }
 
 private:
 	int m_numCameras;
@@ -26,10 +29,16 @@ private:
 	double totalOverTransTimeListenOneBefore;
 	double totalIndepTransTime;
 	double totalMinimumTransTime;
+	int totalOverTransByte;
+	int totalIndepTransByte;
+	int totalMinimumTransByte;
 	double IndepTimeCalculator();
 	double OverTimeCalculator();
 	double OverTimeCalculatorListenOneBefore();
 	double MinimumTimeCalculator();
+	int OverByteCalculator();
+	int IndepByteCalculator();
+	int MinimumByteCalculator();
 	vector< vector<double> > CalRequiredTime();
 };
 

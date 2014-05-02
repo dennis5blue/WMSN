@@ -1,0 +1,18 @@
+Resoultion: 720p
+Indepent transmission time = 34.5805
+Graph: Trans time = 26.5062; Improvement ratio = 23.3492 %
+Scheduling Metric: Trans time = 26.5583; Improvement ratio = 23.1988 %
+MLS: Trans time = ; Improvement ratio = 20.94%
+Largest entropy first: Trans time = 30.4236; Improvement ratio = 12.021 %
+Smallest entropy first: Trans time = 30.4015; Improvement ratio = 12.0849 %
+Minimum transmission time = 21.7841 (second); Maximum ratio = 37.0047 %
+
+
+Resoultion: 360p
+Indepent transmission time = 9.59499
+Graph: Trans time = 7.71572; Improvement ratio = 19.586 %
+Scheduling Metric: Trans time = 7.60582; Improvement ratio = 20.7314 %
+MLS: Trans byte = ; Improvement ratio = 18.34%
+Largest entropy first: Trans time = 8.02545; Improvement ratio = 16.3579 %
+Smallest entropy first: Trans time = 8.00277; Improvement ratio = 16.5943 %
+Minimum transmission time = 6.28986 (second); Maximum ratio = 34.4464 %

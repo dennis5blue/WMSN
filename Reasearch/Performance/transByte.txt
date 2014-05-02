@@ -1,0 +1,16 @@
+Resoultion: 720p
+Indepent transmission byte = 1594736
+Graph: Trans byte = 1283796; Improvement ratio = 19 %
+Scheduling Metric: Trans byte = 1308490; Improvement ratio = 17 %
+MLS: Trans byte = 1379700; Improvement ratio = 13.49%
+Largest entropy first: Trans byte = 1405764; Improvement ratio = 11 %
+Minimum transmission byte = 1087365 (bytes); Maximum ratio = 31 %
+
+Resolution: 360p
+Indepent transmission byte = 425188
+Graph: Trans byte = 354101; Improvement ratio = 16 %
+Scheduling Metric: Trans byte = 358005; Improvement ratio = 15 %
+MLS: Trans byte = 374560; Improvement ratio = 11.91%
+Largest entropy first: Trans byte = 372242; Improvement ratio = 12 %
+Minimum transmission byte = 302822 (bytes); Maximum ratio = 28 %
+

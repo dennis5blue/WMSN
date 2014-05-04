@@ -111,8 +111,13 @@ double SimulationFactory::MinimumTimeCalculator()
 int SimulationFactory::IndepByteCalculator()
 {
 	int m_totalIndepTransByte = 0;
+	cout << "Independent required bytes: " << endl;
 	for (int i=0; i!=m_numCameras; ++i)
+	{
 		m_totalIndepTransByte += m_overhearTopology.at(i).at(i);
+		cout << m_overhearTopology.at(i).at(i) << " ";
+	}
+	cout << endl;
 	return m_totalIndepTransByte;
 }
 
@@ -124,23 +129,33 @@ int SimulationFactory::OverByteCalculator()
 			cout << m_overhearTopology.at(a).at(b) << " ";
 		cout << endl;
 	}*/
+	cout << "Overhearing required bytes: " << endl;
 	int firstCamera = m_cameraSchedule.at(0);
 	int m_totalOverTransByte = m_overhearTopology.at(firstCamera).at(firstCamera);
+	cout << m_overhearTopology.at(firstCamera).at(firstCamera) << " ";
 	for (int i=1; i!=m_numCameras; ++i)
 	{
 		int encodeCamera = m_cameraSchedule.at(i);
 		int refCamera = m_cameraSchedule.at(i-1);
 		if (m_overhearTopology.at(encodeCamera).at(refCamera) > 0)
+		{
 			m_totalOverTransByte += m_overhearTopology.at(encodeCamera).at(refCamera);
+			cout << m_overhearTopology.at(encodeCamera).at(refCamera) << " ";
+		}			
 		else if (m_overhearTopology.at(encodeCamera).at(refCamera) == -1)
+		{		
 			m_totalOverTransByte += m_overhearTopology.at(encodeCamera).at(encodeCamera);
+			cout << m_overhearTopology.at(encodeCamera).at(encodeCamera) << " ";
+		}
 	}
+	cout << endl;
 	return m_totalOverTransByte;
 }
 
 int SimulationFactory::MinimumByteCalculator()
 {
 	int m_totalMinimumTransByte = 0;
+	cout << "Minimum required bytes: " << endl;
 	for (int i=0; i!=m_numCameras; ++i)
 	{
 		int tempMinByte = m_overhearTopology.at(i).at(i);
@@ -149,10 +164,17 @@ int SimulationFactory::MinimumByteCalculator()
 			if (m_overhearTopology.at(i).at(j) < tempMinByte && m_overhearTopology.at(i).at(j)>0)
 				tempMinByte = m_overhearTopology.at(i).at(j);
 		}
-		//cout << "Camera " << i << "tempMinTime= " << tempMinTime << endl;
+		cout << tempMinByte << " ";
 		m_totalMinimumTransByte += tempMinByte;
 	}
-
+	cout << endl;
 	return m_totalMinimumTransByte;
 }
 
+/*
+int SimulationFactory::PrintTransTimeEachCamera();
+{
+
+	return 1;
+}
+*/

@@ -17,6 +17,7 @@ public:
 	int GetOverTransByte() const {return totalOverTransByte; }
 	int GetIndepTransByte() const {return totalIndepTransByte; }
 	int GetMinimumTransByte() const {return totalMinimumTransByte; }
+	//int PrintTransTimeEachCamera();
 
 private:
 	int m_numCameras;

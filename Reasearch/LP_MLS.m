@@ -1,4 +1,4 @@
-correlation3 =load('./Topology/paper360_LPInput.txt');
+correlation3 =load('./Topology/paper720_LPInput.txt');
 Capacity = [1.86313e+06 1.86313e+06 2.06955e+06 1.86313e+06 1.86313e+06 ...
     2.06955e+06 113231 113231 110986 113231 113231 110986 3.6668e+06  ...
     3.6668e+06 3.02487e+06 3.6668e+06 3.6668e+06 3.02487e+06 3.6668e+06 ...
@@ -85,7 +85,7 @@ RecordImproveRatio = [];
 RecordTime = [];
 RecordImproveRatioByte = [];
 RecordByte = [];
-for avetime = 1:100
+for avetime = 1:1
     %Approximation Algorithm for MLS
     for cam=1:cameraNum
         Xbinary(cam) = binornd(1,X(cam));
@@ -118,8 +118,10 @@ for avetime = 1:100
     %calculate total transmisssion byte
     originalByte = 0;
     totalByte = 0;
+    eachCameraByte = [];
     for cal2=1:cameraNum
         totalByte = totalByte+ correlation3(find(Ybinary(:,cal2)==1),cal2);
+        eachCameraByte = [eachCameraByte correlation3(find(Ybinary(:,cal2)==1),cal2)]; 
         originalByte = originalByte + correlation3(cal2,cal2);
     end
     ImproveRatio2 = (originalByte - totalByte) / originalByte;

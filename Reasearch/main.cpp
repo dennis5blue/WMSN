@@ -62,33 +62,39 @@ int main(int argc, char *argv[])
 		cout << position[k].first << " " << position[k].second << endl;
 	*/
 	cout << "Input File is: " << INPUT_CORR << endl;
+	cout << endl;
 
 	TopologyFactory myTopology( CAMERA_NUM, position, mycorrTopology );
 	//myTopology.PrintTopology();
-	
-	ScheduleFactory mySchedule( CAMERA_NUM, position, myTopology.GetTopology() );
+
 	cout << "Graph: ";	
+	ScheduleFactory mySchedule( CAMERA_NUM, position, myTopology.GetTopology() );
 	mySchedule.PrintSchedule();
-	SchedulingMetric anotherSchedule( CAMERA_NUM, position, myTopology.GetTopology() );	
-	cout << "Scheduling metric: ";	
-	anotherSchedule.PrintSchedule();
-	SinrScheduling sinrSchedule( CAMERA_NUM, position, myTopology.GetTopology() );
-	cout << "Largest entropy first: ";	
-	sinrSchedule.PrintSchedule();
-	cout << "Smallest entropy first: ";
-	sinrSchedule.PrintSchedule2();
-	
 	SimulationFactory mySimulation( CAMERA_NUM, myTopology.GetTopology(),
 		mySchedule.GetSchedule(), mySchedule.GetCapacity());
-	SimulationFactory anotherSimulation( CAMERA_NUM, myTopology.GetTopology(),
-		anotherSchedule.GetSchedule(), anotherSchedule.GetCapacity());
-	SimulationFactory sinrSimulation( CAMERA_NUM, myTopology.GetTopology(),
-		sinrSchedule.GetSchedule(), sinrSchedule.GetCapacity());
-	SimulationFactory sinrSimulation2( CAMERA_NUM, myTopology.GetTopology(),
-		sinrSchedule.GetSchedule2(), sinrSchedule.GetCapacity());
-
 	cout << endl;
 
+	cout << "Scheduling metric: ";
+	SchedulingMetric anotherSchedule( CAMERA_NUM, position, myTopology.GetTopology() );	
+	anotherSchedule.PrintSchedule();
+	SimulationFactory anotherSimulation( CAMERA_NUM, myTopology.GetTopology(),
+		anotherSchedule.GetSchedule(), anotherSchedule.GetCapacity());
+	cout << endl;
+	
+	cout << "Largest entropy first: ";	
+	SinrScheduling sinrSchedule( CAMERA_NUM, position, myTopology.GetTopology() );
+	sinrSchedule.PrintSchedule();
+	SimulationFactory sinrSimulation( CAMERA_NUM, myTopology.GetTopology(),
+		sinrSchedule.GetSchedule(), sinrSchedule.GetCapacity());	
+	
+	cout << endl;	
+	cout << "Smallest entropy first: ";
+	sinrSchedule.PrintSchedule2();
+	SimulationFactory sinrSimulation2( CAMERA_NUM, myTopology.GetTopology(),
+		sinrSchedule.GetSchedule2(), sinrSchedule.GetCapacity());	
+	cout << endl;
+
+	/*
 	cout << "Indepent transmission time = " << anotherSimulation.GetIndepTransTime() << endl;
 	cout << "Graph: ";	
 	cout << "Trans time = " << mySimulation.GetOverTransTimeListenOneBefore() << "; ";
@@ -108,9 +114,10 @@ int main(int argc, char *argv[])
 		sinrSimulation2.GetOverTransTimeListenOneBefore() )/sinrSimulation2.GetIndepTransTime() << " %" <<endl;	
 	cout << "Minimum transmission time = " << mySimulation.GetMinimumTransTime() << " (second)" << endl;
 	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransTime()-mySimulation.GetMinimumTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
+	*/
 	
 	
-	/*cout << "Indepent transmission byte = " << anotherSimulation.GetIndepTransByte() << endl;
+	cout << "Indepent transmission byte = " << anotherSimulation.GetIndepTransByte() << endl;
 	cout << "Graph: ";
 	cout << "Trans byte = " << mySimulation.GetOverTransByte() << "; ";
 	cout << "Improvement ratio = " << 100*( mySimulation.GetIndepTransByte()-
@@ -124,7 +131,7 @@ int main(int argc, char *argv[])
 	cout << "Improvement ratio = " << 100*( sinrSimulation.GetIndepTransByte()-
 		sinrSimulation.GetOverTransByte() )/sinrSimulation.GetIndepTransByte() << " %" <<endl;	
 	cout << "Minimum transmission byte = " << mySimulation.GetMinimumTransByte() << " (bytes)" << endl;
-	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransByte()-mySimulation.GetMinimumTransByte() )/mySimulation.GetIndepTransByte() << " %" <<endl;*/
+	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransByte()-mySimulation.GetMinimumTransByte() )/mySimulation.GetIndepTransByte() << " %" <<endl;
 
 }
 

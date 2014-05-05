@@ -140,12 +140,14 @@ int SimulationFactory::OverByteCalculator()
 		if (m_overhearTopology.at(encodeCamera).at(refCamera) > 0)
 		{
 			m_totalOverTransByte += m_overhearTopology.at(encodeCamera).at(refCamera);
-			cout << m_overhearTopology.at(encodeCamera).at(refCamera) << " ";
+			cout << m_overhearTopology.at(encodeCamera).at(refCamera);
+			cout << "P ";
 		}			
 		else if (m_overhearTopology.at(encodeCamera).at(refCamera) == -1)
 		{		
 			m_totalOverTransByte += m_overhearTopology.at(encodeCamera).at(encodeCamera);
-			cout << m_overhearTopology.at(encodeCamera).at(encodeCamera) << " ";
+			cout << m_overhearTopology.at(encodeCamera).at(encodeCamera);
+			cout << "I ";
 		}
 	}
 	cout << endl;

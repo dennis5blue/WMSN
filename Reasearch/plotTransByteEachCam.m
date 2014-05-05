@@ -9,8 +9,8 @@ MLS =    [43439 80658 54135 71379 70535 72939 66695 39887 50180 75013 76701 5131
 
 y = [];
 for i = 1:24
-    %y = [y ; indep(i) metric(i) MLS(i)];
-    y = [y ; indep(i)/1024 metric(i)/1024];
+    y = [y ; indep(i) MLS(i) metric(i)];
+    %y = [y ; indep(i)/1024 metric(i)/1024];
 end
 x = 0:23;
 
@@ -22,5 +22,5 @@ xlim([-0.5 23.5])
 %ylim([0.5 1.6]);
 xlabel(gca,'Camera index');
 ylabel(gca,'Transmission bytes (kb)');
-legend('Independent encoding','Scheduling metric')
+legend('Independent encoding','MLS','Scheduling metric');
 grid on;

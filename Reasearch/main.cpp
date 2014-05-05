@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 	cout << endl;
 
 	TopologyFactory myTopology( CAMERA_NUM, position, mycorrTopology );
-	//myTopology.PrintTopology();
+	myTopology.PrintTopology();
 
 	cout << "Graph: ";	
 	ScheduleFactory mySchedule( CAMERA_NUM, position, myTopology.GetTopology() );

@@ -40,7 +40,7 @@ def main(argv=None):
 			yy = float(tokens[2])*100
 			ofPos.write(str(xx)+' '+str(yy)+'\n')
 
-	for camera in range(24):
+	for camera in range(30):
 		corrCompression = open(corrFilePath+str(camera)+".out","r")
 		corrMatrix = open(saveFilePath+"corrMatrix","a+")
 		lines = corrCompression.readlines()

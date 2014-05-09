@@ -137,6 +137,20 @@ int SimulationFactory::OverByteCalculator()
 	{
 		int encodeCamera = m_cameraSchedule.at(i);
 		int refCamera = m_cameraSchedule.at(i-1);
+		
+		// use to find the best reference camera (not just using the camera scheduled one position before, but need to be scheduled previously)		
+		if (m_overhearTopology.at(encodeCamera).at(refCamera) != -1)		
+			int tempRequiredByte = m_overhearTopology.at(encodeCamera).at(refCamera);
+		else if (m_overhearTopology.at(encodeCamera).at(refCamera) == -1)
+			int tempRequiredByte = m_overhearTopology.at(encodeCamera).at(encodeCamera);
+		for(int j=0; j!=i; ++j)
+		{
+			int refCamera2 = m_cameraSchedule.at(j);
+			if (m_overhearTopology.at(encodeCamera).at(refCamera2) < m_overhearTopology.at(encodeCamera).at(refCamera) && m_overhearTopology.at(encodeCamera).at(refCamera2) != -1)
+				refCamera = refCamera2;
+		}
+
+		// caluate the required encoded bytes
 		if (m_overhearTopology.at(encodeCamera).at(refCamera) > 0)
 		{
 			m_totalOverTransByte += m_overhearTopology.at(encodeCamera).at(refCamera);

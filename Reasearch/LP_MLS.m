@@ -1,9 +1,10 @@
-correlation3 =load('./Topology/paper720_LPInput.txt');
+correlation3 =load('./Topology/paper720_30cam_LPInput.txt');
 Capacity = [1.86313e+06 1.86313e+06 2.06955e+06 1.86313e+06 1.86313e+06 ...
-    2.06955e+06 113231 113231 110986 113231 113231 110986 3.6668e+06  ...
+    2.06955e+06 113231 113231 110986 113231 113231 110986 3.6668e+06 ...
     3.6668e+06 3.02487e+06 3.6668e+06 3.6668e+06 3.02487e+06 3.6668e+06 ...
-    3.6668e+06 3.02487e+06 3.6668e+06 3.6668e+06 3.02487e+06];
-cameraNum = 24;
+    3.6668e+06 3.02487e+06 3.6668e+06 3.6668e+06 3.02487e+06 1.09184e+06 ...
+    714248 257083 2.82371e+06 899747 1.09579e+07];
+cameraNum = 30;
 
 
 for r = 1:cameraNum
@@ -85,7 +86,7 @@ RecordImproveRatio = [];
 RecordTime = [];
 RecordImproveRatioByte = [];
 RecordByte = [];
-for avetime = 1:1
+for avetime = 1:100
     %Approximation Algorithm for MLS
     for cam=1:cameraNum
         Xbinary(cam) = binornd(1,X(cam));

@@ -4,7 +4,7 @@
 
 import bpy
 import random
-
+import math
 
 # way of remove object, we need to select the objects first
 # gather list of items of interest.
@@ -144,8 +144,30 @@ cameraPos = (-0.53, -0.1, 0.07)
 cameraRotation = (1.3, 0.0, 3.95)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
 
-bpy.data.scenes["Scene"].render.resolution_x = 1280*2;
-bpy.data.scenes["Scene"].render.resolution_y = 720*2;
+#Camera cluster 5
+#Note that cameras in this cluster does not install at the same crossroad
+cameraPos = (-0.5, 0.5, 0.07)
+cameraRotation = (math.pi*74.485/180, 0.0, math.pi*257.83/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (0.58, 0.53, 0.08)
+cameraRotation = (math.pi*66.0/180, 0.0, math.pi*150.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (0.1, 1.0, 0.07)
+cameraRotation = (math.pi*73.296/180, 0.0, math.pi*256.83/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-0.55, 0.0, 0.07)
+cameraRotation = (math.pi*89.025/180, 0.0, math.pi*235.83/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (0.18, 0.72, 0.07)
+cameraRotation = (math.pi*68.755/180, 0.0, math.pi*257.83/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-0.28, 0.2, 0.07)
+cameraRotation = (math.pi*79.214/180, 0.0, math.pi*181.83/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+
+bpy.data.scenes["Scene"].render.resolution_x = 480*2;
+bpy.data.scenes["Scene"].render.resolution_y = 360*2;
 # object has a attribute named type which can query the type
 # print(str(object.type))
 for object in bpy.data.objects:
@@ -160,7 +182,7 @@ print('\nPrint Scenes...');
 sceneKey = bpy.data.scenes.keys()[0]; 
 print('Using Scene['  + sceneKey + ']');
 c=0;
-logFileName="//home/dennisyu/Documents/WMSN/TestSequences/test_paper_png/log.txt"
+logFileName="//home/dennisyu/Documents/WMSN/TestSequences/test_paper360_30cam_png/log.txt"
 logFile=open(logFileName,"w+")
 for obj in bpy.data.objects: 
 # Find cameras that match cameraNames 
@@ -176,7 +198,7 @@ for obj in bpy.data.objects:
         # Render Scene and store the scene 
         bpy.ops.render.render( write_still=True ); 
         RR = "Render Result";
-        bpy.data.images[RR].save_render("/home/dennisyu/Documents/WMSN/TestSequences/test_paper_png/camera_"+str(c)+".png");
+        bpy.data.images[RR].save_render("/home/dennisyu/Documents/WMSN/TestSequences/test_paper360_30cam_png/camera_"+str(c)+".png");
         c = c + 1; 
 
 logFile.close()

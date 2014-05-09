@@ -27,7 +27,7 @@ private:
 	vector<int> transSchedule;
 	vector<double> capacityToAggregator;
 	vector< vector<double> > CalRequiredTime();
-	vector<int> GenerateSchedule();		
+	vector<int> GenerateSchedule();
 	double CapacityToAggregatorCal(double m_x, double m_y);
 	double ResourceDifferenceCal(int cam1, int cam2);
 	double MetricCal(vector<int> m_nonScheduled, int m_targetCam);

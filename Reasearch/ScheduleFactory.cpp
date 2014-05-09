@@ -17,14 +17,14 @@ ScheduleFactory::ScheduleFactory(int numCameras, vector< pair<double,double> > p
 	yA = m_positions.at(0).second; //Aggregator's position
 	
 	//Initialize Required bytes and Channel capacity
-	//cout << "Capacity to Aggregator: " << endl;
+	cout << "Capacity to Aggregator: " << endl;
 	for (int cam=0; cam!=m_numCameras; ++cam)
 	{
 		indepRequiredBytes.push_back( m_overhearTopology.at(cam).at(cam) );
 		capacityToAggregator.push_back( CapacityToAggregatorCal(xA, yA, m_positions.at(cam+1).first, m_positions.at(cam+1).second, power, bandwidth, N0) );
-		//cout << capacityToAggregator.at(cam) << " ";
+		cout << capacityToAggregator.at(cam) << " ";
 	}
-	//cout << endl;
+	cout << endl;
 
 	// Generate the schedule order 
 	GenerateSchedule(m_numCameras, m_overhearTopology);

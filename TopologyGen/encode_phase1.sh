@@ -1,7 +1,7 @@
 #! /bin/bash
-for (( kk=720; kk<= 720; kk=kk+1)) #for the test version
+for (( kk=360; kk<= 360; kk=kk+1)) #for the test version
 do
-	for (( ii=0; ii<=23; ii=ii+1)) #for the camera index	
+	for (( ii=0; ii<=29; ii=ii+1)) #for the camera index	
 	do	
 		echo "
 		### Job name
@@ -30,7 +30,7 @@ do
 		MCR_tmp=\"/tmp/mcr_\$RANDOM\"
 		mkdir \$MCR_tmp
 		export MCR_CACHE_ROOT=\$MCR_tmp
-		python encode.py --version _paper"$kk" --phase 1 --camera "$ii"
+		python encode.py --version _paper"$kk"_30cam --phase 1 --camera "$ii"
 		rm -rf \$MCR_tmp                                                
 		" >>  ./tempFile/Encode$ii.sh
 

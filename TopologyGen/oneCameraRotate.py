@@ -65,41 +65,49 @@ scene.objects.active = lamp_object
 
 #add camera (fix position)
 #Camera cluster 1
-cameraPos = (-0.5, 0.1, 0.07)
-cameraRotation = (1.3, math.pi*0.0/180, -math.pi*0.0/180)
+cameraPos = (-0.7, 1.3, 0.1)
+cameraRotation = (math.pi*76.0/180, math.pi*0.0/180, -math.pi*90.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-cameraPos = (-0.5, 0.1, 0.07)
-cameraRotation = (1.3, math.pi*0.0/180, -math.pi*10.0/180)
+
+cameraPos = (-0.7+(0.3-0.3*math.cos(math.pi*10.0/180)), 1.3-0.3*math.sin(math.pi*10.0/180), 0.1)
+cameraRotation = (math.pi*76.0/180, math.pi*0.0/180, -math.pi*80.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-cameraPos = (-0.5, 0.1, 0.07)
-cameraRotation = (1.3, math.pi*0.0/180, -math.pi*20.0/180)
+
+cameraPos = (-0.7+(0.3-0.3*math.cos(math.pi*20.0/180)), 1.3-0.3*math.sin(math.pi*20.0/180), 0.1)
+cameraRotation = (math.pi*76.0/180, math.pi*0.0/180, -math.pi*70.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-cameraPos = (-0.5, 0.1, 0.07)
-cameraRotation = (1.3, math.pi*0.0/180, -math.pi*30.0/180)
+
+cameraPos = (-0.7+(0.3-0.3*math.cos(math.pi*30.0/180)), 1.3-0.3*math.sin(math.pi*30.0/180), 0.1)
+cameraRotation = (math.pi*76.0/180, math.pi*0.0/180, -math.pi*60.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-cameraPos = (-0.5, 0.1, 0.07)
-cameraRotation = (1.3, math.pi*0.0/180, -math.pi*40.0/180)
+
+cameraPos = (-0.7+(0.3-0.3*math.cos(math.pi*40.0/180)), 1.3-0.3*math.sin(math.pi*40.0/180), 0.1)
+cameraRotation = (math.pi*76.0/180, math.pi*0.0/180, -math.pi*50.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-cameraPos = (-0.5, 0.1, 0.07)
-cameraRotation = (1.3, math.pi*0.0/180, -math.pi*50.0/180)
+
+cameraPos = (-0.7+(0.3-0.3*math.cos(math.pi*50.0/180)), 1.3-0.3*math.sin(math.pi*50.0/180), 0.1)
+cameraRotation = (math.pi*76.0/180, math.pi*0.0/180, -math.pi*40.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-cameraPos = (-0.5, 0.1, 0.07)
-cameraRotation = (1.3, math.pi*0.0/180, -math.pi*60.0/180)
+
+cameraPos = (-0.7+(0.3-0.3*math.cos(math.pi*60.0/180)), 1.3-0.3*math.sin(math.pi*60.0/180), 0.1)
+cameraRotation = (math.pi*76.0/180, math.pi*0.0/180, -math.pi*30.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-cameraPos = (-0.5, 0.1, 0.07)
-cameraRotation = (1.3, math.pi*0.0/180, -math.pi*70.0/180)
+
+cameraPos = (-0.7+(0.3-0.3*math.cos(math.pi*70.0/180)), 1.3-0.3*math.sin(math.pi*70.0/180), 0.1)
+cameraRotation = (math.pi*76.0/180, math.pi*0.0/180, -math.pi*20.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-cameraPos = (-0.5, 0.1, 0.07)
-cameraRotation = (1.3, math.pi*0.0/180, -math.pi*80.0/180)
+
+cameraPos = (-0.7+(0.3-0.3*math.cos(math.pi*80.0/180)), 1.3-0.3*math.sin(math.pi*80.0/180), 0.1)
+cameraRotation = (math.pi*76.0/180, math.pi*0.0/180, -math.pi*10.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-cameraPos = (-0.5, 0.1, 0.07)
-cameraRotation = (1.3, math.pi*0.0/180, -math.pi*90.0/180)
+
+cameraPos = (-0.7+(0.3-0.3*math.cos(math.pi*90.0/180)), 1.3-0.3*math.sin(math.pi*90.0/180), 0.1)
+cameraRotation = (math.pi*76.0/180, math.pi*0.0/180, -math.pi*0.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
 
 
-
-bpy.data.scenes["Scene"].render.resolution_x = 1080*2;
-bpy.data.scenes["Scene"].render.resolution_y = 768*2;
+bpy.data.scenes["Scene"].render.resolution_x = 1280*2;
+bpy.data.scenes["Scene"].render.resolution_y = 720*2;
 # object has a attribute named type which can query the type
 # print(str(object.type))
 for object in bpy.data.objects:
@@ -114,7 +122,7 @@ print('\nPrint Scenes...');
 sceneKey = bpy.data.scenes.keys()[0]; 
 print('Using Scene['  + sceneKey + ']');
 c=0;
-logFileName="//home/dennisyu/Documents/WMSN/TestSequences/cameraRotate2_png/log.txt"
+logFileName="//home/dennisyu/Documents/WMSN/TestSequences/test_paperRotate_png/log.txt"
 logFile=open(logFileName,"w+")
 for obj in bpy.data.objects: 
 # Find cameras that match cameraNames 
@@ -130,7 +138,7 @@ for obj in bpy.data.objects:
         # Render Scene and store the scene 
         bpy.ops.render.render( write_still=True ); 
         RR = "Render Result";
-        bpy.data.images[RR].save_render("/home/dennisyu/Documents/WMSN/TestSequences/cameraRotate2_png/camera_"+str(c)+".png");
+        bpy.data.images[RR].save_render("/home/dennisyu/Documents/WMSN/TestSequences/test_paperRotate_png/camera_"+str(c)+".png");
         c = c + 1; 
 
 logFile.close()

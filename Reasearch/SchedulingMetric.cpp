@@ -10,7 +10,7 @@ SchedulingMetric::SchedulingMetric(int numCameras, vector< pair<double,double> >
 	m_overhearTopology(overhearTopology)
 {
 	requiredTime = CalRequiredTime();
-	GenerateSchedule();
+	vector<int> m_transSchedule = GenerateSchedule();
 }
 
 vector<int> SchedulingMetric::GenerateSchedule()

@@ -1,0 +1,110 @@
+\subsection{Dominating Set Problem}
+\label{sec::DominatingSet}
+{\color{blue}
+Recall that our goal in this paper is to determine a proper transmission
+schedule.
+We here claim that the transmission scheduling problem can be seen as choosing
+part of the cameras as {I-frame} transmitters (broadcasters) while the other
+cameras are {P-frame} transmitters (listeners).
+The transmission schedule is thus simple, we let all the broadcasters to be
+transmitted before listeners so that the later scheduled listeners are able to
+reference from those previous scheduled broadcasters for reducing its encoded
+bits.
+Therefore, what we interested in is how to select broadcasters to let those
+listeners have the capability to reduce the most encoded bits.
+Since the listeners are able to reduce their encoded bits but the broadcasters
+cannot, one intuitive idea for radio resource conservation is to select fewest
+broadcasters where the transmission range of those broadcasters can cover the
+whole network (since a listener can only reduce encoded bits when it can
+overhear a broadcaster's transmission).
+
+We now refer to the \emph{Minimum Dominating Set} problem for selecting the
+fewest broadcasters in the surveillance network.
+In some applications, the \emph{Minimum Dominating Set} problem is formulated
+as a integer programming problem~\cite{MDS}.
+Therefore, the broadcasters selection problem can be written as:
+\begin{align}
+\text{minimize} &~~\sum_{i=1}^N \sum_{j=1}^N \alpha_{ii}H(X_j|X_i),\nonumber \\
+\text{subject to} &~~A \vec{\alpha} \succeq k \vec{1}, \nonumber \\
+ &~~\alpha_{ii} \in \{ 0,1 \},
+\label{eq::MDS}
+\end{align}
+where $A$ is an adjacency matrix indicates the overhearing capability ($i-j$
+entry $=1$ if camera $v_i$ is able to overhear camera $v_j$) and $\vec{\alpha}$
+is a vector where its $i^{th}$ component is $\alpha_{ii}$.
+The ides of Problem~\eqref{eq::MDS} is that we want to select a subset of
+broadcasters so that they can have the minimum encoded bits if other listeners
+reference from those broadcasters.
+The first constraint of Problem~\eqref{eq::MDS} is to protect that all cameras
+can have at least $k$ candidate reference broadcasters (covered by the
+transmission range of at least $k$ broadcasters).
+By relaxing the second constraint of Problem~\eqref{eq::MDS} from ${\alpha_{ii} 
+\in \{0,1\}}$ to ${0 \leq \alpha_{ii} \leq 1}$, we can get a linear programming
+problem as:
+\begin{align}
+\text{minimize} &~~\sum_{i=1}^N \sum_{j=1}^N \alpha_{ii}H(X_j|X_i),\nonumber \\
+\text{subject to} &~~A \vec{\alpha} \succeq k \vec{1}, \nonumber \\
+ &~~0 \leq \alpha_{ii} \leq 1,
+\label{eq::relaxedMDS}
+\end{align}
+Therefore, Problem~\eqref{eq::relaxedMDS} can be solved easily as a
+conventional linear programming problem.
+After obtaining the value of $\vec{\alpha}$, camera $v_i$ is selected as a
+broadcaster with probability $\alpha_{ii}$ and the rest listeners will choose
+the best broadcasters as its reference camera.
+
+Note that $k=1$ in the conventional \emph{Minimum Dominating Set} problem since
+the goal of \emph{Minimum Dominating Set} problem is to select the fewest nodes
+to cover the whole graph.
+However, $k=1$ is not suitable in our paper because if a camera $v_i$ can only
+select its reference frame from one candidate broadcaster, it happens that the
+broadcaster is not correlated with camera $v_i$, causing that the system
+performance becomes lower. 
+Therefore, we here give the motivation to increase the value of $k$ in
+Problem~\eqref{eq::relaxedMDS} and the influence of $k$ will be shown in our
+evaluation results.
+
+}
+{\color{OliveGreen}
+%We also try use a greedy algorithm to solve the broadcaster selection problem
+%in a surveillance cameras network.
+%First, we need to mention that any maximal independent set (MIS) is a
+%dominating set if they consider the same graph, and constructing a MIS can be
+%done by a greedy algorithm~\cite{MISisDS}.
+%In reference~\cite{MIS}, the authors generate the MIS by an adaptive greedy
+%function.
+%In this paper, we refer to the idea in~\cite{MIS} but slightly change the
+%greedy objective
+We also try to use graph theory to solve the broadcaster selection problem in
+surveillance cameras network.
+Note that the idea of $k$ introduced in Problem~\eqref{eq::relaxedMDS} is
+similar to the $k$-tuple dominating set problem.
+The authors in~\cite{ICGA} proposed an \emph{ICGA} algorithm which is able to
+generate a $k$-tuple dominating set based on centralized decision.
+The \emph{ICGA} algorithm constructs a dominating set first and iteratively add
+node whose dominator neighbors is less than $k$ into the dominating set by a
+greedy criteria.
+We here first construct a dominating set $\mathcal{D}$ by the algorithm
+proposed in~\cite{MIS}, and apply the \emph{ICGA} algorithm for generating the
+$k$-tuple dominating set $\mathcal{D}_k$.
+The overall procedure of the algorithm is summarized in
+Algorithm~\ref{alg::kTupleDS}, and the performance will also be compared in
+our evaluation results.
+
+}
+
+\begin{algorithm}[t]
+\caption{Constructing a $k$-tuple dominating set $\mathcal{D}_k$
+\label{alg::kTupleDS}}
+\begin{algorithmic}[1]
+\State Construct a dominating set $\mathcal{D}$ using GRASP~\cite{MIS}
+\State $\mathcal{D}_k \gets \mathcal{D}$
+\While{There has a node whose number of dominator neighbors is less than $k$}
+\State $\mathcal{F} \gets$ All the nodes whose number of dominator neighbors is
+less than $k$
+\State Add the node that dominates the largest number of nodes in $\mathcal{F}$
+to $\mathcal{D}$ 
+\State $\mathcal{D}_k \gets \mathcal{D}$ 
+\EndWhile
+\end{algorithmic}
+\end{algorithm} 

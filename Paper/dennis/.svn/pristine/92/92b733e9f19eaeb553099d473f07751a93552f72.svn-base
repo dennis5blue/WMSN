@@ -1,0 +1,29 @@
+@ONLINE{CameraInstallation, 
+title = {Surveillance Camera Installation for your Business},
+url = {http://www.downtoearthcommunications.com/com-cctv.php}
+}
+@Manual{Blender,
+title = {Blender - a 3D modelling and rendering package},
+author = {{Blender Online Community}},
+organization = {Blender Foundation},
+address = {Blender Institute, Amsterdam},
+url = {http://www.blender.org}
+}
+@MANUAL{Suicidator,
+title = {Suicidator City Generator - Create 3D cities},
+author = {Arnaud Couturier},
+url = {http://cgchan.com/suicidator}
+}
+@MANUAL{JMVC,
+title = {JMVC Reference Software},
+url = {http://ftp3.itu.int/av-arch/jvt-site/2008\_10\_Busan/JVT-AC207.zip.}
+}
+@INPROCEEDINGS{MLS, 
+author={Pu Wang and Rui Dai and  Ian F.Akyildiz}, 
+booktitle={Proceedings of IEEE INFOCOM}, 
+title={Visual correlation-based image gathering for wireless multimedia sensor networks}, 
+year={2011}, 
+month={April}, 
+pages={2489-2497}, 
+ISSN={0743-166X}
+}

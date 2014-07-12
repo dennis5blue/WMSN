@@ -1,0 +1,17 @@
+\section{Conclusion}
+\label{sec::Conclusion}
+
+In this paper, we present some ideas about exploiting the overhearing source
+coding in the wireless multimedia sensor networks.
+Under this dependent scheme, we can reduce the total encoded bits required for
+gathering data.
+Reducing encoded bits can not only save the radio resource but also conserve the
+transmission power.
+Experiment results show that with our proposed scheduling algorithm, the total
+required encoded bits be reduced about $16\%$ under the HD (${1280 \times 720}$)
+image resolution.
+However, there is still a performance gap of our algorithm than the overall
+lower bound.
+Therefore, this paper indeed encourage using the overhearing source coding in
+the wireless multimedia sensor networks and motivate further investigation about
+this topic.

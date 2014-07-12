@@ -1,0 +1,52 @@
+\section{Correlation Analysis and Problem Formulation}
+\label{sec::CorrelationAnalysisandProblemFormulation}
+In this section, we first details how we analysis the correlation between
+cameras in the wireless multimedia sensor network and then formulate our
+problem.
+\subsection{Correlation Analysis}
+\label{sec::CorrelationAnalysis}
+As we mentioned before, our purpose in this paper is to reduce the total
+transmission time of the wireless multimedia sensor network.
+To simplify our problem, we assume that all the cameras in the network need to
+transmit its collected image to the aggregator.
+Therefore, our problem is to determine the transmission order so that all
+cameras in the network can reference from the most correlated frame.
+
+Given a set ${V=\{v_1,v_2, \cdots v_N \}}$ of cameras placed in a city, where
+each camera $v_i$ produces image $X_i$.
+We now assume that the entropy of independently encoding camera $v_i$ equals
+$H(X_{i})$, and	$H(X_{i}|X_{j})$ is the conditional entropy if camera $v_i$
+reference from camera $v_j$ when encoding.
+Note that if camera $v_i$ tends to reference from camera $v_j$, the
+transmission range of camera $v_j$ must cover $v_i$.
+
+To proceed, the correlation between two cameras $v_i$ and $v_j$ can be analyzed
+as:
+\begin{equation}
+\gamma_{ij} = \max \{ 0, 1-\frac{H(X_{i}|X_{j})}{H(X_{i})} \}.
+\label{eq::correlationAnalysis}
+\end{equation}
+The reason why we take the maximum with $0$ is that $H(X_{i}|X_{j})$ can be
+larger than $H(X_{i})$ when the scene gathered by camera $v_i$ and $v_j$
+differs a lot.
+Therefore, in order to make the correlation level always non-negative, we set
+${\gamma_{ij}=0}$ when ${H(X_{i}|X_{j})>H(X_{i})}$.
+Besides, $\gamma_{ii}$ will not equals to $1$ since there still has some
+remaining header in H.264 coding scheme even when using camera $v_i$ to predict
+itself.
+
+By analyzing the correlation level between cameras in a network, we can find
+the best reference camera for each camera.
+That is, if we aim to reduce the transmission time of camera $v_i$, then
+choosing camera with the highest ${\gamma_{ij}, \forall j \in V, j \neq i}$
+might be a good choice.
+However, it rise a problem that we cannot greedy determine the reference camera
+by finding the largest value of $\gamma$ for each camera in $V$.
+Some of the cameras in $V$ must transmit first so that the later scheduled
+P-frame transmitters can reference from them and reduce its transmission time.
+Therefore, our goal in this paper is to choose a proper schedule so that the
+P-frame transmitter can reference from the most correlated transmitter, and
+hence the total transmission time will be reduced.
+
+\subsection{Problem Formulation}
+\label{sec::ProblemFormulation}

@@ -1,0 +1,57 @@
+\documentclass[english,conference,a4paper]{IEEEtran}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathdots}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{esint}
+\usepackage{mhchem}
+\usepackage{babel}
+\usepackage{textcomp}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{cite}
+\usepackage{bm}
+\usepackage{subcaption}
+\usepackage{algpseudocode}
+\usepackage{color}
+
+\newcommand{\ignore}[1]{}
+
+\begin{document}
+
+%\title{Overhearing Source Coding in Wireless Multimedia Sensor Networks}
+\title{Design and Evaluation of Correlation-Aware Scheduling for Wireless Surveillance Cameras}
+\author{
+\IEEEauthorblockN{Chang-Yu Song and Hung-Yun Hsieh}
+\IEEEauthorblockA{Graduate Institute of Communication Engineering \& \\
+Department of Electrical Engineering \\
+National Taiwan University, Taipei, Taiwan 106}
+%Email: hungyun@ntu.edu.tw}
+}
+
+\maketitle
+
+%\begin{abstract}
+%\input{abstract}
+%\end{abstract}
+
+\input{Introduction}
+%\input{CorrelationAnalysisandProblemFormulation}
+%\input{NetworkScenario}
+%\input{DifferentialEncoding}
+
+\input{ProblemFormulation}
+\input{SchedulingAlgorithm}
+\input{OverhearingExperiments}
+%\input{Conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{reference}
+
+\end{document} 

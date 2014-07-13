@@ -16,7 +16,7 @@ SimulationFactory::SimulationFactory(int numCameras, vector< vector<int> > overh
 	totalOverTransTime = OverTimeCalculator();
 	totalOverTransTimeListenOneBefore = OverTimeCalculatorListenOneBefore();
 	totalMinimumTransTime = MinimumTimeCalculator();
-	totalOverTransByte = OverByteCalculator();
+	totalOverTransByte = OverByteCalculator(); //Listen only one before
 	totalIndepTransByte = IndepByteCalculator();
 	totalMinimumTransByte = MinimumByteCalculator();
 }
@@ -129,41 +129,59 @@ int SimulationFactory::OverByteCalculator()
 			cout << m_overhearTopology.at(a).at(b) << " ";
 		cout << endl;
 	}*/
+    std::vector <int> beta; // 1 is broadcaster, 0 is listener
 	cout << "Overhearing required bytes: " << endl;
 	int firstCamera = m_cameraSchedule.at(0);
 	int m_totalOverTransByte = m_overhearTopology.at(firstCamera).at(firstCamera);
+    beta.push_back (1);
 	cout << m_overhearTopology.at(firstCamera).at(firstCamera) << " ";
 	for (int i=1; i!=m_numCameras; ++i)
 	{
 		int encodeCamera = m_cameraSchedule.at(i);
 		int refCamera = m_cameraSchedule.at(i-1);
+        int tempRequiredByte = 0;
 		
-		// use to find the best reference camera (not just using the camera scheduled one position before, but need to be scheduled previously)		
-		if (m_overhearTopology.at(encodeCamera).at(refCamera) != -1)		
-			int tempRequiredByte = m_overhearTopology.at(encodeCamera).at(refCamera);
-		else if (m_overhearTopology.at(encodeCamera).at(refCamera) == -1)
-			int tempRequiredByte = m_overhearTopology.at(encodeCamera).at(encodeCamera);
-		for(int j=0; j!=i; ++j)
-		{
-			int refCamera2 = m_cameraSchedule.at(j);
-			if (m_overhearTopology.at(encodeCamera).at(refCamera2) < m_overhearTopology.at(encodeCamera).at(refCamera) && m_overhearTopology.at(encodeCamera).at(refCamera2) != -1)
-				refCamera = refCamera2;
-		}
-
-		// caluate the required encoded bytes
-		if (m_overhearTopology.at(encodeCamera).at(refCamera) > 0)
-		{
-			m_totalOverTransByte += m_overhearTopology.at(encodeCamera).at(refCamera);
-			cout << m_overhearTopology.at(encodeCamera).at(refCamera);
-			cout << "P ";
-		}			
-		else if (m_overhearTopology.at(encodeCamera).at(refCamera) == -1)
-		{		
-			m_totalOverTransByte += m_overhearTopology.at(encodeCamera).at(encodeCamera);
-			cout << m_overhearTopology.at(encodeCamera).at(encodeCamera);
-			cout << "I ";
-		}
-	}
+		// use to check if the previous camera can be overheard
+		// need to check all the adjacent cameras is the previous camera is P-frame encoded
+		if (beta.at (i-1) == 1) // if the previous one is broadcaster, just reference it
+        {
+            tempRequiredByte = m_overhearTopology.at(encodeCamera).at(refCamera);
+            m_totalOverTransByte += tempRequiredByte;
+            beta.push_back (0);
+            cout << tempRequiredByte;
+            cout << "P ";
+        }
+        else if (beta.at (i-1) == 0)
+        {
+            int originalI = i-1;
+            int jumpOut = i-1;
+            while (jumpOut >= 0)
+            {
+                if (beta.at (jumpOut) == 1)
+                {
+                    originalI = jumpOut;
+                    jumpOut = -1;
+                }
+                -- jumpOut;
+            }
+            if (m_overhearTopology.at (encodeCamera).at (originalI) != -1)
+            {
+                tempRequiredByte = m_overhearTopology.at(encodeCamera).at(refCamera);
+                m_totalOverTransByte += tempRequiredByte;
+                beta.push_back (0);
+                cout << tempRequiredByte;
+                cout << "P ";
+            }
+            else if (m_overhearTopology.at (encodeCamera).at (originalI) == -1)
+            {
+                tempRequiredByte = m_overhearTopology.at (encodeCamera).at (encodeCamera);
+                m_totalOverTransByte += tempRequiredByte;
+                beta.push_back (1);
+                cout << tempRequiredByte;
+                cout << "I ";
+            }
+        }
+    }
 	cout << endl;
 	return m_totalOverTransByte;
 }

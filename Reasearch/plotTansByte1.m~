@@ -15,8 +15,7 @@ bar([0 0 0 0 0 1554833/(1024*1024)], 'b','barwidth',0.6,'FaceColor',[0.75,0.75,0
 set(gca,'xticklabel',' ');
 %set(gcf,'color','none');
 %set(gca,'color','none');
-ylim([1.2 1.9]);
+ylim([1 1.9]);
 ylabel(gca,'Total transmission bytes (Mb)');
-legend('Independent encoding','MLS','Dominating set (math)','Dominating set (graph)', ...
-    'Proposed algorithm', 'Proposed algorithm with interlaced IP frames');
+legend('Independent encoding','MLS','Dominating set (math)','Dominating set (graph)','Proposed algorithm', 'Proposed algorithm with interlaced IP frames')
 grid on;

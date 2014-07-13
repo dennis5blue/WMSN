@@ -147,9 +147,9 @@ int main(int argc, char *argv[])
 	cout << "Improvement ratio = " << 100*( anotherSimulation.GetIndepTransByte()-
 		anotherSimulation.GetOverTransByte() )/anotherSimulation.GetIndepTransByte() << " %" <<endl;
     cout << "Scheduling Metric with interlace IP frame: ";
-	cout << "Trans byte = " << interlaceIPSimulation.GetOverTransByte() << "; ";
+	cout << "Trans byte = " << interlaceIPSimulation.GetOverTransByteInterlacedIP() << "; ";
 	cout << "Improvement ratio = " << 100*( interlaceIPSimulation.GetIndepTransByte()-
-                                           interlaceIPSimulation.GetOverTransByte() )/interlaceIPSimulation.GetIndepTransByte() << " %" <<endl;
+                                           interlaceIPSimulation.GetOverTransByteInterlacedIP() )/interlaceIPSimulation.GetIndepTransByte() << " %" <<endl;
 	//cout << "Largest entropy first: ";
 	//cout << "Trans byte = " << sinrSimulation.GetOverTransByte() << "; ";
 	//cout << "Improvement ratio = " << 100*( sinrSimulation.GetIndepTransByte()-

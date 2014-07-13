@@ -15,6 +15,7 @@ public:
 	double GetOverTransTimeListenOneBefore() const {return totalOverTransTimeListenOneBefore; }
 	double GetMinimumTransTime() const {return totalMinimumTransTime; }
 	int GetOverTransByte() const {return totalOverTransByte; }
+    int GetOverTransByteInterlacedIP() const {return totalOverTransByteInterlacedIP; }
 	int GetIndepTransByte() const {return totalIndepTransByte; }
 	int GetMinimumTransByte() const {return totalMinimumTransByte; }
 	//int PrintTransTimeEachCamera();
@@ -31,6 +32,7 @@ private:
 	double totalIndepTransTime;
 	double totalMinimumTransTime;
 	int totalOverTransByte;
+    int totalOverTransByteInterlacedIP;
 	int totalIndepTransByte;
 	int totalMinimumTransByte;
 	double IndepTimeCalculator();
@@ -38,6 +40,7 @@ private:
 	double OverTimeCalculatorListenOneBefore();
 	double MinimumTimeCalculator();
 	int OverByteCalculator();
+    int OverByteCalculatorInterlacedIP();
 	int IndepByteCalculator();
 	int MinimumByteCalculator();
 	vector< vector<double> > CalRequiredTime();

@@ -16,6 +16,7 @@ SimulationFactory::SimulationFactory(int numCameras, vector< vector<int> > overh
 	totalOverTransTime = OverTimeCalculator();
 	totalOverTransTimeListenOneBefore = OverTimeCalculatorListenOneBefore();
 	totalMinimumTransTime = MinimumTimeCalculator();
+    totalOverTransByteInterlacedIP = OverByteCalculatorInterlacedIP(); // IPIPIPIPIP interlaced
 	totalOverTransByte = OverByteCalculator(); //Listen only one before
 	totalIndepTransByte = IndepByteCalculator();
 	totalMinimumTransByte = MinimumByteCalculator();
@@ -185,6 +186,50 @@ int SimulationFactory::OverByteCalculator()
 	cout << endl;
 	return m_totalOverTransByte;
 }
+
+int SimulationFactory::OverByteCalculatorInterlacedIP()
+{
+	cout << "Overhearing required bytes: " << endl;
+	int firstCamera = m_cameraSchedule.at(0);
+	int m_totalOverTransByte = m_overhearTopology.at(firstCamera).at(firstCamera);
+    cout << m_overhearTopology.at(firstCamera).at(firstCamera) << "I ";
+	for (int i=1; i!=m_numCameras; ++i)
+	{
+		int encodeCamera = m_cameraSchedule.at(i);
+		int refCamera = m_cameraSchedule.at(i-1);
+        int tempRequiredByte = 0;
+		
+        if (i % 2 == 1) // it is a P-frame transmitter
+        {
+            if (m_overhearTopology.at (encodeCamera).at (refCamera) != -1)
+            {
+                tempRequiredByte = m_overhearTopology.at(encodeCamera).at(refCamera);
+                m_totalOverTransByte += tempRequiredByte;
+                cout << tempRequiredByte;
+                cout << "P ";
+            }
+            else if (m_overhearTopology.at (encodeCamera).at (refCamera) == -1)
+            // P-frame transmitter but cannot overhear the previous I-frame transmitter
+            {
+                tempRequiredByte = m_overhearTopology.at (encodeCamera).at (encodeCamera);
+                m_totalOverTransByte += tempRequiredByte;
+                cout << tempRequiredByte;
+                cout << "I ";
+            }
+        }
+        else if (i % 2 == 0) // it is an I-frame transmitter
+        {
+            tempRequiredByte = m_overhearTopology.at (encodeCamera).at (encodeCamera);
+            m_totalOverTransByte += tempRequiredByte;
+            cout << tempRequiredByte;
+            cout << "I ";
+        }
+        
+    }
+	cout << endl;
+	return m_totalOverTransByte;
+}
+
 
 int SimulationFactory::MinimumByteCalculator()
 {

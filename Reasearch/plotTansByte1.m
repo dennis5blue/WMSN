@@ -11,7 +11,7 @@ bar([0 0 0 1711300/(1024*1024) 0 0], 'b','barwidth',0.6,'FaceColor',[0.75,0.75,0
 hold on;
 bar([0 0 0 0 1623547/(1024*1024) 0], 'b','barwidth',0.6,'FaceColor',[0.75,0.75,0]);
 hold on;
-bar([0 0 0 0 0 1554833/(1024*1024)], 'b','barwidth',0.6,'FaceColor',[0.75,0.75,0]);
+bar([0 0 0 0 0 1758165/(1024*1024)], 'b','barwidth',0.6,'FaceColor',[0.75,0.75,0]);
 set(gca,'xticklabel',' ');
 %set(gcf,'color','none');
 %set(gca,'color','none');

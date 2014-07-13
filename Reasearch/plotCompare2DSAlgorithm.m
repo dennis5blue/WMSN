@@ -29,13 +29,13 @@ improveRatio(1,:) = [0.0913 0.1014 0.0935 0.0717 0.0613 0.0637 0.0569];
 for i=1:7
     eval(['improveRatio(2,' num2str(i) ')=(indepBits-DSk' num2str(i) ')/indepBits;']);
 end
-ln(1) = line(OverlappedTime(:), 100*improveRatio(1,:),'Marker','o','LineWidth',2,'MarkerFaceColor','none','MarkerSize',8,'color','r');
+%ln(1) = line(OverlappedTime(:), 100*improveRatio(1,:),'Marker','o','LineWidth',2,'MarkerFaceColor','none','MarkerSize',8,'color','r');
 ln(2) = line(OverlappedTime(:), 100*improveRatio(2,:),'Marker','o','LineWidth',2,'MarkerFaceColor','none','MarkerSize',8,'color','b');
 %end
 %set(gca, 'YLim', [0.8 1.2]);
-xlabel('Overlapped times (k)','FontSize',13,'Color','k');
+xlabel('Multiplicity (k)','FontSize',13,'Color','k');
 ylabel('Improvement ratio (%)','FontSize',13,'Color','k');
-legend('Mathematic solution','Graph algorithm','location','NorthEast');
+legend('Graph algorithm','location','NorthEast');
 set(gca,'fontsize',13);
 grid on;
 box on;

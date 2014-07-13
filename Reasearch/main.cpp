@@ -85,11 +85,11 @@ int main(int argc, char *argv[])
 		anotherSchedule.GetSchedule(), anotherSchedule.GetCapacity());
 	cout << endl;
     
-    cout << "Scheduling metric with interlace IP frame: ";
+    /*cout << "Scheduling metric with interlace IP frame: ";
     SchedulingMetricInterlaceIPConsiderByte interlaceIPSchedule (CAMERA_NUM, position, myTopology.GetTopology ());
     interlaceIPSchedule.PrintSchedule ();
     SimulationFactory interlaceIPSimulation ( CAMERA_NUM, myTopology.GetTopology(),                                             interlaceIPSchedule.GetSchedule(), interlaceIPSchedule.GetCapacity());
-    cout << endl;
+    cout << endl;*/
 	
 	//cout << "Using SA: ";
 	//SAFactory saSchedule( CAMERA_NUM, position, myTopology.GetTopology(), anotherSchedule.GetSchedule() );
@@ -146,10 +146,10 @@ int main(int argc, char *argv[])
 	cout << "Trans byte = " << anotherSimulation.GetOverTransByte() << "; ";
 	cout << "Improvement ratio = " << 100*( anotherSimulation.GetIndepTransByte()-
 		anotherSimulation.GetOverTransByte() )/anotherSimulation.GetIndepTransByte() << " %" <<endl;
-    cout << "Scheduling Metric with interlace IP frame: ";
-	cout << "Trans byte = " << interlaceIPSimulation.GetOverTransByteInterlacedIP() << "; ";
-	cout << "Improvement ratio = " << 100*( interlaceIPSimulation.GetIndepTransByte()-
-                                           interlaceIPSimulation.GetOverTransByteInterlacedIP() )/interlaceIPSimulation.GetIndepTransByte() << " %" <<endl;
+    //cout << "Scheduling Metric with interlace IP frame: ";
+	//cout << "Trans byte = " << interlaceIPSimulation.GetOverTransByteInterlacedIP() << "; ";
+	//cout << "Improvement ratio = " << 100*( interlaceIPSimulation.GetIndepTransByte()-
+    //                                       interlaceIPSimulation.GetOverTransByteInterlacedIP() )/interlaceIPSimulation.GetIndepTransByte() << " %" <<endl;
 	//cout << "Largest entropy first: ";
 	//cout << "Trans byte = " << sinrSimulation.GetOverTransByte() << "; ";
 	//cout << "Improvement ratio = " << 100*( sinrSimulation.GetIndepTransByte()-

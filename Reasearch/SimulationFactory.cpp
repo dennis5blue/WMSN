@@ -16,7 +16,7 @@ SimulationFactory::SimulationFactory(int numCameras, vector< vector<int> > overh
 	totalOverTransTime = OverTimeCalculator();
 	totalOverTransTimeListenOneBefore = OverTimeCalculatorListenOneBefore();
 	totalMinimumTransTime = MinimumTimeCalculator();
-    totalOverTransByteInterlacedIP = OverByteCalculatorInterlacedIP(); // IPIPIPIPIP interlaced
+    //totalOverTransByteInterlacedIP = OverByteCalculatorInterlacedIP(); // IPIPIPIPIP interlaced
 	totalOverTransByte = OverByteCalculator(); //Listen only one before
 	totalIndepTransByte = IndepByteCalculator();
 	totalMinimumTransByte = MinimumByteCalculator();
@@ -112,11 +112,11 @@ double SimulationFactory::MinimumTimeCalculator()
 int SimulationFactory::IndepByteCalculator()
 {
 	int m_totalIndepTransByte = 0;
-	cout << "Independent required bytes: " << endl;
+	//cout << "Independent required bytes: " << endl;
 	for (int i=0; i!=m_numCameras; ++i)
 	{
 		m_totalIndepTransByte += m_overhearTopology.at(i).at(i);
-		cout << m_overhearTopology.at(i).at(i) << " ";
+		//cout << m_overhearTopology.at(i).at(i) << " ";
 	}
 	cout << endl;
 	return m_totalIndepTransByte;
@@ -146,32 +146,67 @@ int SimulationFactory::OverByteCalculator()
 		// need to check all the adjacent cameras is the previous camera is P-frame encoded
 		if (beta.at (i-1) == 1) // if the previous one is broadcaster, just reference it
         {
-            tempRequiredByte = m_overhearTopology.at(encodeCamera).at(refCamera);
-            m_totalOverTransByte += tempRequiredByte;
-            beta.push_back (0);
-            cout << tempRequiredByte;
-            cout << "P ";
-        }
-        else if (beta.at (i-1) == 0)
-        {
-            int originalI = i-1;
-            int jumpOut = i-1;
-            while (jumpOut >= 0)
-            {
-                if (beta.at (jumpOut) == 1)
-                {
-                    originalI = jumpOut;
-                    jumpOut = -1;
-                }
-                -- jumpOut;
-            }
-            if (m_overhearTopology.at (encodeCamera).at (originalI) != -1)
+            if (m_overhearTopology.at(encodeCamera).at(refCamera) != -1)
             {
                 tempRequiredByte = m_overhearTopology.at(encodeCamera).at(refCamera);
                 m_totalOverTransByte += tempRequiredByte;
                 beta.push_back (0);
                 cout << tempRequiredByte;
                 cout << "P ";
+            }
+            else if (m_overhearTopology.at(encodeCamera).at(refCamera) == -1)
+            {
+                tempRequiredByte = m_overhearTopology.at(encodeCamera).at(encodeCamera);
+                m_totalOverTransByte += tempRequiredByte;
+                beta.push_back (1);
+                cout << tempRequiredByte;
+                cout << "I ";
+            }
+        }
+        // previous one is listener, need to check all the nodes until original broadcaster
+        else if (beta.at (i-1) == 0)
+        {
+            int originalI = i-1; // camera index of the original I-frame
+            int originalIPos = i; // schedule position of the originak I-frame
+            int jumpOut = 0;
+            while (jumpOut != 0)
+            {
+                -- originalIPos;
+                if (beta.at (originalIPos) == 1)
+                {
+                    originalI = m_cameraSchedule.at (jumpOut);
+                    jumpOut = 1;
+                }
+            }
+            if (m_overhearTopology.at (encodeCamera).at (originalI) != -1)
+            {
+                int canOverhear = 1;
+                int checkCamIndex = i-1;
+                int pCam = m_cameraSchedule.at (i-1);
+                int useForCheck = i-1;
+                while (useForCheck >= originalIPos)
+                {
+                    pCam = m_cameraSchedule.at (useForCheck);
+                    if (m_overhearTopology.at(encodeCamera).at(pCam) == -1)
+                        canOverhear = 0;
+                    --useForCheck;
+                }
+                if (canOverhear == 1 && m_overhearTopology.at(encodeCamera).at(refCamera)!=-1)
+                {
+                    tempRequiredByte = m_overhearTopology.at(encodeCamera).at(refCamera);
+                    m_totalOverTransByte += tempRequiredByte;
+                    beta.push_back (0);
+                    cout << tempRequiredByte;
+                    cout << "P ";
+                }
+                else if (canOverhear == 0 || m_overhearTopology.at(encodeCamera).at(refCamera)==-1)
+                {
+                    tempRequiredByte = m_overhearTopology.at(encodeCamera).at(encodeCamera);
+                    m_totalOverTransByte += tempRequiredByte;
+                    beta.push_back (1);
+                    cout << tempRequiredByte;
+                    cout << "I ";
+                }
             }
             else if (m_overhearTopology.at (encodeCamera).at (originalI) == -1)
             {
@@ -234,7 +269,7 @@ int SimulationFactory::OverByteCalculatorInterlacedIP()
 int SimulationFactory::MinimumByteCalculator()
 {
 	int m_totalMinimumTransByte = 0;
-	cout << "Minimum required bytes: " << endl;
+	//cout << "Minimum required bytes: " << endl;
 	for (int i=0; i!=m_numCameras; ++i)
 	{
 		int tempMinByte = m_overhearTopology.at(i).at(i);
@@ -243,7 +278,7 @@ int SimulationFactory::MinimumByteCalculator()
 			if (m_overhearTopology.at(i).at(j) < tempMinByte && m_overhearTopology.at(i).at(j)>0)
 				tempMinByte = m_overhearTopology.at(i).at(j);
 		}
-		cout << tempMinByte << " ";
+		//cout << tempMinByte << " ";
 		m_totalMinimumTransByte += tempMinByte;
 	}
 	cout << endl;

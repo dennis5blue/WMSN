@@ -35,7 +35,7 @@ ln(2) = line(OverlappedTime(:), 100*improveRatio(2,:),'Marker','o','LineWidth',2
 %set(gca, 'YLim', [0.8 1.2]);
 xlabel('Multiplicity (k)','FontSize',13,'Color','k');
 ylabel('Improvement ratio (%)','FontSize',13,'Color','k');
-legend('Graph algorithm','location','NorthEast');
+%legend('Graph algorithm','location','NorthEast');
 set(gca,'fontsize',13);
 grid on;
 box on;

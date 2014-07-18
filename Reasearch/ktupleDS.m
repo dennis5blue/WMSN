@@ -10,7 +10,7 @@ Capacity = [1.86313e+06 1.86313e+06 2.06955e+06 1.86313e+06 1.86313e+06 ...
 cameraNum = 30;
 indepByte = zeros(1,cameraNum);
 adjacency = ones(cameraNum,cameraNum);
-magick = 4; %k-tuple dominating set
+magick = 7; %k-tuple dominating set
 alpha = 0.6; %weighting factor for MIS generation
 
 for r = 1:cameraNum

@@ -12,6 +12,6 @@ set(gca,'xticklabel',' ');
 %set(gcf,'color','none');
 %set(gca,'color','none');
 ylim([1.2 1.9]);
-ylabel(gca,'Total transmission bytes (Mb)');
-legend('Independent encoding','MLS','Dominating set','Proposed algorithm');
+ylabel(gca,'Total transmission bytes (MB)','FontSize',13);
+legend('Independent coding','MLS [8]','K-tuple dominating set','Proposed scheduling metric');
 grid on;

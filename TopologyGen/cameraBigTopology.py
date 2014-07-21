@@ -62,130 +62,354 @@ lamp_object.select = True
 scene.objects.active = lamp_object
 
 #add camera (fix position)
-#cameraPos = (-5.8, -7.3, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-2.0, -7.3, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-1.2, -6.9, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*15.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (0.1, -7.4, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-8.0, -7.8, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*270.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-6.1, -8.42, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-2.130, -9.1, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*15.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-0.05, -0.9, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*10.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-6.83, -1.0, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*15.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-4.2, -2.67, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*320.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-7.43, 3.05, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*30.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-8.5, 5.08, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-4.46, 9.0, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-6.2, 2.5, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*190.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-0.5, 6.08, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*275.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-0.5, 6.74, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-0.5, 3.94, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*60.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-2.94, 0.91, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-3.8, 2.81, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*275.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (-9.549, 9.0, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (3.0, 0.78, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*100.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (2.0, 1.06, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*175.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (7.5, 0.85, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*255.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (7.5, 2.3, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*330.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (9.5, 4.27, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*260.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (8.08, 5.16, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (2.0, 5.08, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*340.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (2.13, 6.65, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*270.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (3.5, 7.2, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*200.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
-#cameraPos = (7.0, 8.95, 0.1)
-#cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*225.0/180)
-#bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+#Group 1
+cameraPos = (-5.8, -7.3, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-5.8, -7.3, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-5.83, -7.3, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-2.0, -7.3, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-2.0, -7.3, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-2.03, -7.3, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-1.2, -6.9, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*15.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-1.2, -6.9, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*15.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-1.23, -6.9, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*15.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (0.1, -7.4, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (0.1, -7.4, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (0.13, -7.4, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-8.0, -7.8, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*270.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-8.0, -7.8, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*270.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-8.03, -7.8, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*270.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-6.1, -8.42, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-6.1, -8.42, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-2.130, -9.1, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*15.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-2.130, -9.1, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*15.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-0.05, -0.9, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*10.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-0.05, -0.9, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*10.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-6.83, -1.0, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*15.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-6.83, -1.0, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*15.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-4.2, -2.67, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*320.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-4.2, -2.67, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*320.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+#Group 2
+cameraPos = (-7.43, 3.05, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*30.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-7.43, 3.05, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*30.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-7.45, 3.05, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*30.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-8.5, 5.08, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-8.5, 5.08, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-8.53, 5.08, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-4.46, 9.0, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-4.46, 9.0, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-4.49, 9.0, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-6.2, 2.5, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*190.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-6.2, 2.5, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*190.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-6.23, 2.5, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*190.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-0.5, 6.08, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*275.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-0.5, 6.08, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*275.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-0.53, 6.08, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*275.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-0.5, 6.74, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-0.5, 6.74, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*90.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-0.5, 3.94, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*60.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-0.5, 3.94, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*60.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-2.94, 0.91, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-2.94, 0.91, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-3.8, 2.81, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*275.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-3.8, 2.81, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*275.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (-9.549, 9.0, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (-9.549, 9.0, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+#Group 3
+cameraPos = (3.0, 0.78, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*100.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (3.0, 0.78, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*100.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (3.0, 0.80, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*100.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (2.0, 1.06, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*175.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (2.0, 1.06, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*175.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (2.0, 1.10, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*175.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (7.5, 0.85, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*255.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (7.5, 0.85, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*255.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (7.5, 0.88, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*255.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (7.5, 2.3, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*330.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (7.5, 2.3, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*330.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (7.5, 2.33, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*330.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (9.5, 4.27, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*260.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (9.5, 4.27, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*260.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (9.5, 4.3, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*260.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (8.08, 5.16, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (8.08, 5.16, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*185.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (2.0, 5.08, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*340.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (2.0, 5.08, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*345.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (2.13, 6.65, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*270.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (2.13, 6.65, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*275.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (3.5, 7.2, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*200.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (3.5, 7.2, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*205.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+cameraPos = (7.0, 8.95, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*225.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (7.0, 8.95, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*220.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
+#Group 4
 cameraPos = (2.56, -2.17, 0.1)
 cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*0.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (2.56, -2.17, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*0.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (2.56, -2.20, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*0.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
 cameraPos = (4.15, -2.5, 0.1)
 cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*155.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (4.15, -2.5, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*155.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (4.15, -2.53, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*155.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
 cameraPos = (5.45, -2.0, 0.1)
 cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*175.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (5.45, -2.0, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*175.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (5.45, -2.03, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*175.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
 cameraPos = (7.4, -2.11, 0.1)
 cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*270.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (7.4, -2.11, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*270.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (7.4, -2.15, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*270.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
 cameraPos = (9.69, -4.0, 0.1)
 cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*190.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (9.69, -4.0, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*190.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (9.69, -4.02, 0.1)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*190.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
 cameraPos = (7.27, -5.46, 0.1)
 cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*8.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (7.27, -5.46, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*10.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
 cameraPos = (3.55, -5.8, 0.1)
 cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*350.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (3.55, -5.8, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*352.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
 cameraPos = (3.46, -8.16, 0.1)
 cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*275.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (3.46, -8.16, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*270.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
 cameraPos = (5.03, -8.85, 0.1)
 cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*185.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (5.03, -8.85, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*180.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+
 cameraPos = (7.91, -8.83, 0.1)
 cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*5.0/180)
 bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
+cameraPos = (7.91, -8.83, 0.11)
+cameraRotation = (math.pi*90.0/180, math.pi*0.0/180, -math.pi*8.0/180)
+bpy.ops.object.camera_add(view_align=False, enter_editmode=False, location=cameraPos, rotation=cameraRotation);
 
 
-bpy.data.scenes["Scene"].render.resolution_x = 1280*2;
-bpy.data.scenes["Scene"].render.resolution_y = 720*2;
+bpy.data.scenes["Scene"].render.resolution_x = 480*2;
+bpy.data.scenes["Scene"].render.resolution_y = 360*2;
 # object has a attribute named type which can query the type
 # print(str(object.type))
 for object in bpy.data.objects:

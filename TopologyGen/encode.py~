@@ -29,7 +29,7 @@ def corrDiscover(camIndex, processList, outFile):
 	
 	for i in range(len(processList)):
 		call(["rm","../EncoderTempFiles/cam"+camIndex+"rec_0.yuv","../EncoderTempFiles/cam"+camIndex+"rec_1.yuv"])
-		call(["rm","../EncoderTempFiles/cam"+camIndex+"stream_0.264","../EncoderTempFiles/cam"+camIndex+"stream_1.264"])
+		call(["rm","../EncoderTempFiles/cam"+camIndex+"stream_0.yuv","../EncoderTempFiles/cam"+camIndex+"stream_1.yuv"])
 		call(["rm","../EncoderTempFiles/cam"+camIndex+"tmp_0.yuv","../EncoderTempFiles/cam"+camIndex+"tmp_1.yuv"])
 		call(["cp",testSeqPath+processList[i], "../EncoderTempFiles/cam"+camIndex+"tmp_0.yuv"])
 		output_0 =  Popen([encoderPath,"-vf",configurePath+"01cam"+camIndex+"Diff.cfg","0"],stdout=PIPE).communicate()[0]

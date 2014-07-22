@@ -1,0 +1,18 @@
+rm: 無法移除 ‘./tempFile/rec_0.yuv’: 沒有此一檔案或目錄
+rm: 無法移除 ‘./tempFile/rec_1.yuv’: 沒有此一檔案或目錄
+rm: 無法移除 ‘./tempFile/rec_0.yuv’: 沒有此一檔案或目錄
+rm: 無法移除 ‘./tempFile/rec_1.yuv’: 沒有此一檔案或目錄
+rm: 無法移除 ‘./tempFile/rec_1.yuv’: 沒有此一檔案或目錄
+H264AVCEncoderLibTestStaticd: /home/dennisyu/WMSN/WMSN/JMVC/JMVC/H264Extension/build/linux/lib/H264AVCVideoIoLib/../../../../src/lib/H264AVCVideoIoLib/WriteYuvToFile.cpp:62: virtual ErrVal WriteYuvToFile::destroy(): Assertion `0' failed.
+rm: 無法移除 ‘./tempFile/rec_0.yuv’: 沒有此一檔案或目錄
+rm: 無法移除 ‘./tempFile/rec_1.yuv’: 沒有此一檔案或目錄
+failed to open YUV input file ../EncoderTempFiles/tmp_0.yuv
+failed to open YUV input file ../EncoderTempFiles/tmp_1.yuv
+Traceback (most recent call last):
+  File "encode.py", line 90, in <module>
+    sys.exit(main())
+  File "encode.py", line 87, in main
+    corrDiscover(camIndex, processList, outFile)
+  File "encode.py", line 39, in corrDiscover
+    byteInfo = " ".join(lines[0].strip().replace("[","").replace("]","").split())
+IndexError: list index out of range

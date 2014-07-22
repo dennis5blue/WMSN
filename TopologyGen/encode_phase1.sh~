@@ -1,5 +1,5 @@
 #! /bin/bash
-for (( kk=100; kk<= 100; kk=kk+1)) #for the test version
+for (( kk=360; kk<= 360; kk=kk+1)) #for the test version
 do
 	for (( ii=0; ii<=9; ii=ii+1)) #for the camera index	
 	do	
@@ -30,7 +30,7 @@ do
 		MCR_tmp=\"/tmp/mcr_\$RANDOM\"
 		mkdir \$MCR_tmp
 		export MCR_CACHE_ROOT=\$MCR_tmp
-		python encode.py --version bigcity_100cam --phase 1 --camera "$ii"
+		python encode.py --version _paperDensity --phase 1 --camera "$ii"
 		rm -rf \$MCR_tmp                                                
 		" >>  ./tempFile/Encode$ii.sh
 

@@ -1,0 +1,4 @@
+rm: cannot remove `./tempFile/rec_0.yuv': No such file or directory
+rm: cannot remove `./tempFile/rec_1.yuv': No such file or directory
+rm: cannot remove `./tempFile/rec_1.yuv': No such file or directory
+H264AVCEncoderLibTestStaticd: /home/dennisyu/WMSN/WMSN/JMVC/JMVC/H264Extension/build/linux/lib/H264AVCVideoIoLib/../../../../src/lib/H264AVCVideoIoLib/WriteYuvToFile.cpp:62: virtual ErrVal WriteYuvToFile::destroy(): Assertion `0' failed.

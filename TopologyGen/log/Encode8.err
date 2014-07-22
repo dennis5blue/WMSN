@@ -1,0 +1,14 @@
+rm: 無法移除 ‘./tempFile/rec_1.yuv’: 沒有此一檔案或目錄
+rm: 無法移除 ‘./tempFile/rec_0.yuv’: 沒有此一檔案或目錄
+rm: 無法移除 ‘./tempFile/rec_1.yuv’: 沒有此一檔案或目錄
+H264AVCEncoderLibTestStaticd: /home/dennisyu/WMSN/WMSN/JMVC/JMVC/H264Extension/build/linux/test/H264AVCEncoderLibTest/../../../../src/test/H264AVCEncoderLibTest/H264AVCEncoderTest.cpp:508: ErrVal H264AVCEncoderTest::go(): Assertion `0' failed.
+readFrame failed in /home/dennisyu/WMSN/WMSN/JMVC/JMVC/H264Extension/build/linux/lib/H264AVCEncoderLib/../../../../src/lib/H264AVCEncoderLib/Multiview.cpp:103.
+Abort.
+Traceback (most recent call last):
+  File "encode.py", line 90, in <module>
+    sys.exit(main())
+  File "encode.py", line 87, in main
+    corrDiscover(camIndex, processList, outFile)
+  File "encode.py", line 39, in corrDiscover
+    byteInfo = " ".join(lines[0].strip().replace("[","").replace("]","").split())
+IndexError: list index out of range

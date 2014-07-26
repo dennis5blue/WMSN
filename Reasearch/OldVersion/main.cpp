@@ -6,10 +6,10 @@
 #include <vector>
 #include <stdlib.h>
 
-#define CAMERA_NUM 30
-#define INPUT_CORR (char*)("./Topology/paper720_30cam_corrMatrix.txt")
-#define INPUT_INDEP (char*)("./Topology/paper720_30cam_indepByte.txt")
-#define INPUT_POS (char*)("./Topology/paper720_30cam_pos.txt")
+#define CAMERA_NUM 100
+#define INPUT_CORR (char*)("../Topology/city2000_res720_cam100_corrMatrix.txt")
+#define INPUT_INDEP (char*)("../Topology/city2000_res720_cam100_indepByte.txt")
+#define INPUT_POS (char*)("../Topology/city2000_res720_cam100_pos.txt")
 
 #include "TopologyFactory.h"
 #include "ScheduleFactory.h"

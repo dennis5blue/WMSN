@@ -16,6 +16,7 @@ class Map
     Map (const int numCameras);
     ~Map ();
     void SetCorrMatrix ();
+    void SetPosition (const vector<pair<double,double> >& cameraPos);
   private:
     const int m_numCameras;
     Eigen::MatrixXd m_corrMatrix;

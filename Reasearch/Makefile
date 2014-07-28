@@ -4,7 +4,9 @@ CC = g++
 CFLAGS = -O
 DFLAGS = -g -Wall
 
-SOURCE = main.cpp
+SOURCE = main.o \
+	 map.o \
+	 mapFactory.o
 
 OBJECTS = ${SOURCE:.cpp=.o}
 

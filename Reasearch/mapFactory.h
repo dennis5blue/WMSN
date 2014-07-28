@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <cstddef>
 #include "map.h"
 
 using std::string;
@@ -32,7 +33,8 @@ class MapFactory
     string m_indepFileName;
     string m_corrFileName;
     const int m_numCameras;
-    vector< pair<double,double> > m_vecPairTransientPos;
+    vector < pair <double,double> > m_vecPairTransientPos;
+    vector <int> m_indepByte;
     Map* m_ptrMap;
 };
 #endif

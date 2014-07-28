@@ -47,4 +47,5 @@ int main (int argc, char *argv[])
 
   MapFactory myMapFactory (inputPos, inputIndep, inputCorr, numCameras);
   Map *myMap = 0;
+  myMapFactory.CreateMap ();
 }

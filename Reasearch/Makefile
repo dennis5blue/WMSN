@@ -6,7 +6,8 @@ DFLAGS = -g -Wall
 
 SOURCE = main.o \
 	 map.o \
-	 mapFactory.o
+	 mapFactory.o \
+	 utility.o
 
 OBJECTS = ${SOURCE:.cpp=.o}
 
@@ -15,14 +16,17 @@ INCLUDE_PATH = -I ${BOOST}/include \
 
 LIB_PATH = -L ${BOOST}/lib
 
-LIB_FLAGS = -lboost_program_options
+LIB_FLAGS = -lboost_program_options \
+	    -lboost_regex \
+	    -lboost_system \
+	    -lboost_filesystem
 
 .SUFFIXES:
 .SUFFIXES: .cpp .o
 
-all: simulator
+all: main
 
-simulator: ${OBJECTS}
+main: ${OBJECTS}
 	@echo buliding $@
 	@-${CC} ${CFLAGS} ${INCLUDE_PATH} ${LIB_PATH} $^ -o $@ ${LIB_FLAGS}
 

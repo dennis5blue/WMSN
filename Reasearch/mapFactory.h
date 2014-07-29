@@ -34,7 +34,9 @@ class MapFactory
     string m_corrFileName;
     const int m_numCameras;
     vector < pair <double,double> > m_vecPairTransientPos;
-    vector <int> m_indepByte;
+    vector <int> m_vecIndepByte;
+    vector <int> m_vecTempCorrByte;
+    vector < vector <int> > m_vecVecCorrByte;
     Map* m_ptrMap;
 };
 #endif

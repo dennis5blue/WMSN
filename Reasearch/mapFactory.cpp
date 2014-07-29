@@ -7,8 +7,8 @@ MapFactory::MapFactory (
     const string& indepFileName,
     const string& corrFileName,
     const int numCameras):
-  m_ptrMap(0),
-  m_numCameras(numCameras)
+  m_numCameras(numCameras),
+  m_ptrMap(0)
 {
   m_posFileName = posFileName;
   m_indepFileName = indepFileName;
@@ -60,8 +60,31 @@ Map* MapFactory::CreateMap ()
     stringstream ss (indepStrLine);
     int h;
     ss >> h;
-    m_indepByte.push_back (h);
+    m_vecIndepByte.push_back (h);
   }
+  indepFile.close ();
+  fstream corrFile;
+  corrFile.open (m_corrFileName.c_str (), fstream::in);
+  string corrStrLine;
+  while (getline (corrFile, corrStrLine)){
+    vector <string> corrTokens = split (corrStrLine, ' ');
+    for (std::size_t j=0; j!=corrTokens.size (); ++j){
+      stringstream ss (corrTokens.at (j));
+      int h;
+      ss >> h;
+      m_vecTempCorrByte.push_back (h); 
+    }
+    m_vecVecCorrByte.push_back (m_vecTempCorrByte);
+    if (m_vecTempCorrByte.size () != unsignCaneraNum){
+      cerr << "Error: dimension of cameras correlation matrix does not match " << endl;
+      return NULL;
+    }
+    else if (m_vecTempCorrByte.size () == unsignCaneraNum){
+      m_vecTempCorrByte.clear ();
+    }
+  }
+  m_ptrMap -> SetCorrelation (m_vecIndepByte, m_vecVecCorrByte);
+
   return m_ptrMap;
 }
 

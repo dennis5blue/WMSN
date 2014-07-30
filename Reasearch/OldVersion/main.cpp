@@ -137,15 +137,17 @@ int main(int argc, char *argv[])
 	*/
 	
 	
-	cout << "Indepent transmission byte = " << anotherSimulation.GetIndepTransByte() << endl;
+	cout << "Indepent transmission time = " << anotherSimulation.GetIndepTransTime() << endl;
 	//cout << "Graph: ";
 	//cout << "Trans byte = " << mySimulation.GetOverTransByte() << "; ";
 	//cout << "Improvement ratio = " << 100*( mySimulation.GetIndepTransByte()-
 	//	mySimulation.GetOverTransByte() )/mySimulation.GetIndepTransByte() << " %" <<endl;
 	cout << "Scheduling Metric: ";
-	cout << "Trans byte = " << anotherSimulation.GetOverTransByte() << "; ";
-	cout << "Improvement ratio = " << 100*( anotherSimulation.GetIndepTransByte()-
-		anotherSimulation.GetOverTransByte() )/anotherSimulation.GetIndepTransByte() << " %" <<endl;
+	cout << "Trans time (Listen one before) = " << anotherSimulation.GetOverTransTimeListenOneBefore() << "; ";
+	cout << "Improvement ratio = " << 100*( anotherSimulation.GetIndepTransTime()-
+		anotherSimulation.GetOverTransTimeListenOneBefore() )/anotherSimulation.GetIndepTransTime() << " %" <<endl;
+    cout << "Trans time (Listen best) = " << anotherSimulation.GetOverTransTime() << "; ";
+    cout << "Improvement ratio = " << 100*( anotherSimulation.GetIndepTransTime()-anotherSimulation.GetOverTransTime() )/anotherSimulation.GetIndepTransTime() << " %" << endl;
     //cout << "Scheduling Metric with interlace IP frame: ";
 	//cout << "Trans byte = " << interlaceIPSimulation.GetOverTransByteInterlacedIP() << "; ";
 	//cout << "Improvement ratio = " << 100*( interlaceIPSimulation.GetIndepTransByte()-
@@ -159,8 +161,8 @@ int main(int argc, char *argv[])
 	//cout << "Improvement ratio = " << 100*( testSimulation.GetIndepTransByte()-
 	//	testSimulation.GetOverTransByte() )/testSimulation.GetIndepTransByte() << " %" <<endl;
 
-	cout << "Minimum transmission byte = " << mySimulation.GetMinimumTransByte() << " (bytes)" << endl;
-	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransByte()-mySimulation.GetMinimumTransByte() )/mySimulation.GetIndepTransByte() << " %" <<endl;
+	cout << "Minimum transmission time = " << mySimulation.GetMinimumTransTime() << " (ms)" << endl;
+	cout << "Maximum ratio = " << 100*( mySimulation.GetIndepTransTime()-mySimulation.GetMinimumTransTime() )/mySimulation.GetIndepTransTime() << " %" <<endl;
 	
 }
 
